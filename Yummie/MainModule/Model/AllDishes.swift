@@ -8,16 +8,15 @@
 import Foundation
 
 struct AllDishes: Decodable {
-    let status: Int
-    let message: String
-    let data: Dishes
+  let status: Int
+  let message: String
+  let data: Dishes
 }
 
 struct Dishes: Decodable {
   let categories: [DishCategory]
   let populars: [Dish]
   let specials: [Dish]
- 
 }
 
 struct DishCategory: Decodable {

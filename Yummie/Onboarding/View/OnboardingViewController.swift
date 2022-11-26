@@ -76,7 +76,6 @@ class OnboardingViewController: UIViewController {
           let mainVC = HomeViewController()
           mainVC.modalPresentationStyle = .fullScreen
           self.present(mainVC, animated: true, completion: nil)
-          
         }
       }.store(in: &subscriptions)
   }
@@ -143,8 +142,4 @@ extension OnboardingViewController: UICollectionViewDataSource,UICollectionViewD
     cell.configure(model: model)
     return cell
   }
-  
-  
-  
-  
 }

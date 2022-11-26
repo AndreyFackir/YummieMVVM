@@ -197,7 +197,6 @@ extension HomeViewController: UICollectionViewDelegate {
         let detailVM = DetailViewModel(dish: chiefSpecial)
         let detailVC = DetialViewController(detailViewModel: detailVM)
         navigationController?.pushViewController(detailVC, animated: true)
-        
     }
   }
 }

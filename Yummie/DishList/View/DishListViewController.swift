@@ -103,7 +103,6 @@ extension DishListViewController: UICollectionViewDataSource {
 extension DishListViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     guard let dish = dishViewModel.dish?.data[indexPath.item] else { return }
-    print(dish)
     let detailVM = DetailViewModel(datum: dish)
     let detailVC = DetialViewController(detailViewModel: detailVM)
     navigationController?.pushViewController(detailVC, animated: true)
