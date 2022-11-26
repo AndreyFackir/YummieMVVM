@@ -2,7 +2,7 @@
 
 In Progress...
 
-A movie application built with Swift 5 and UIKit where the user can order a different dishes.
+A food application built with Swift 5 and UIKit where the user can order a different dishes.
 
  <h3>📱About App</h3> 
  
