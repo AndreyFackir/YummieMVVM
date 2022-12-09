@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
   
   enum Section: String, CaseIterable {
     case foodCategory = "Food Category"
@@ -89,21 +89,21 @@ class HomeViewController: UIViewController {
   }
 }
 // MARK: - Setup
-extension HomeViewController {
+private extension HomeViewController {
   
-  private func setup() {
+  func setup() {
     setupViews()
     setConstraints()
     setupNavigationBar()
     setHomeCollection()
   }
-  private func setupViews() {
+  func setupViews() {
     title = "YUMMIE"
     view.backgroundColor = .specialBackground
     view.addSubview(homeCollection)
   }
   
-  private func setHomeCollection() {
+  func setHomeCollection() {
     homeCollection.dataSource = self
     homeCollection.delegate = self
     homeCollection.backgroundColor = .specialBackground
@@ -120,7 +120,7 @@ extension HomeViewController {
     }
   }
   
-  private func setupNavigationBar() {
+  func setupNavigationBar() {
     let cartImage = UIBarButtonItem(image: UIImage(systemName: "cart.circle.fill"), style: .plain, target: self, action: #selector(cartButtonTapped))
     navigationController?.topViewController?.navigationItem.rightBarButtonItem = cartImage
     cartImage.tintColor = .red

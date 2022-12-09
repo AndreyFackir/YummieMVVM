@@ -93,8 +93,5 @@ extension OrderListViewController: UICollectionViewDelegate {
     let detailVM = DetailViewModel(dishOrders: dishOrders)
     let detailVC = DetialViewController(detailViewModel: detailVM)
     navigationController?.pushViewController(detailVC, animated: true)
-    
   }
-  
-  
 }
