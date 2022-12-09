@@ -86,6 +86,7 @@ final class NetworkService {
         .sink { _ in
           
         } receiveValue: { order in
+          print(order)
           promise(.success(order))
         }
         .store(in: &self.subscriptions)
