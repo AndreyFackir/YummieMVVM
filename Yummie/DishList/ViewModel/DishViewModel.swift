@@ -25,7 +25,7 @@ class DishViewModel {
   
   private func fetchCategoryDishes() {
     ProgressHUD.show()
-    NetworkService.shared.fetchCategoryDishes(categoryDish: dishCategory?.id ?? "")
+    NetworkService.shared.fetch(target: .fetchCategoryDishes(dishCategory?.id ?? ""), type: CategoryDishes?.self)
       .receive(on: DispatchQueue.main)
       .map { $0 }
       .sink { completion in
@@ -35,11 +35,26 @@ class DishViewModel {
           case .failure(let error):
             ProgressHUD.showError(error.localizedDescription)
         }
-      } receiveValue: { [weak self] dish in
-        self?.dish = dish
+      } receiveValue: { [weak self] categoryDish in
+        self?.dish = categoryDish
       }
       .store(in: &subscriptions)
     
+//    NetworkService.shared.fetchCategoryDishes(categoryDish: dishCategory?.id ?? "")
+//      .receive(on: DispatchQueue.main)
+//      .map { $0 }
+//      .sink { completion in
+//        switch completion {
+//          case .finished:
+//            ProgressHUD.dismiss()
+//          case .failure(let error):
+//            ProgressHUD.showError(error.localizedDescription)
+//        }
+//      } receiveValue: { [weak self] dish in
+//        self?.dish = dish
+//      }
+//      .store(in: &subscriptions)
+//
     
   }
   

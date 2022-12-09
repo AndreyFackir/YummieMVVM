@@ -23,7 +23,7 @@ class MainViewModel {
   
   private func fetchDishes() {
     ProgressHUD.show()
-    NetworkService.shared.fetchDishes()
+    NetworkService.shared.fetch(target: .fetchAllCategories, type: AllDishes?.self)
       .receive(on: DispatchQueue.main)
       .map { $0 }
       .sink { completion in
@@ -33,9 +33,8 @@ class MainViewModel {
           case .failure(let error):
             ProgressHUD.showError(error.localizedDescription)
         }
-      } receiveValue: { [weak self] dishes in
-        self?.dishes = dishes
-        
+      } receiveValue: { [weak self] allDishes in
+        self?.dishes = allDishes
       }
       .store(in: &subscriptions)
   }

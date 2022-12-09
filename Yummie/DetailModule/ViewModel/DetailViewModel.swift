@@ -48,7 +48,7 @@ class DetailViewModel {
   
   
   func placeOrder(id: String, name: String) {
-    NetworkService.shared.placeOrder(id: id, name: name) { completion in
+    NetworkService.shared.placeOrder(id: id, target: .placeOrder(id), name: name) { completion in
       switch completion {
         case .success(_):
           ProgressHUD.showSuccess("Your order has been placed")

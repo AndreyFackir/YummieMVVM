@@ -11,19 +11,19 @@ import Combine
 enum NetworkTarget {
   case fetchAllCategories
   case placeOrder(String)
-  case fetchCategoryDihes(String)
+  case fetchCategoryDishes(String)
   case fetchOrders
   
   var link: String {
     switch self {
       case .fetchAllCategories:
-        return "/dish-categories"
+        return Constants.baseUrl + "/dish-categories"
       case .placeOrder(let dishId):
-        return "/orders/\(dishId)"
-      case .fetchCategoryDihes(let categoryId):
-        return "/dishes/\(categoryId)"
+        return Constants.baseUrl + "/orders/\(dishId)"
+      case .fetchCategoryDishes(let categoryId):
+        return Constants.baseUrl + "/dishes/\(categoryId)"
       case .fetchOrders:
-        return "/orders"
+        return Constants.baseUrl + "/orders"
     }
   }
 }
@@ -38,49 +38,27 @@ final class NetworkService {
   // MARK: - Actions
   
   func fetch<T:Decodable>(target: NetworkTarget, type: T.Type) -> AnyPublisher<T, Error> {
-    
-  }
-  
-  func fetchDishes() -> AnyPublisher<AllDishes, Error> {
-    return Future { [weak self] promise in
+    return Future { [ weak self ] promise in
       guard let self = self else { return }
-      guard let url = URL(string: NetworkTarget.baseUrl + NetworkTarget.fetchAllCategories.description) else { return }
+      guard let url = URL(string: target.link) else { return }
       URLSession.shared.dataTaskPublisher(for: url)
-        .catch { error in return Fail(error: error) }
-        .map { $0.data }
-        .decode(type: AllDishes.self, decoder: JSONDecoder())
-        .receive(on: DispatchQueue.main)
-        .sink { _ in
-          
-        } receiveValue: { dishes in
-          promise(.success(dishes))
-        }
-        .store(in: &self.subscriptions)
-    }
-    .eraseToAnyPublisher()
-  }
-  
-  func fetchCategoryDishes(categoryDish: String) -> AnyPublisher<CategoryDishes, Error> {
-    return Future { [weak self] promise in
-      guard let self = self else { return }
-      guard let url = URL(string: NetworkTarget.baseUrl + NetworkTarget.fetchCategoryDihes(categoryDish).description) else { return }
-      URLSession.shared.dataTaskPublisher(for: url)
-        .receive(on: DispatchQueue.main)
         .catch { error in Fail(error: error) }
+        .receive(on: DispatchQueue.main)
         .map { $0.data }
-        .decode(type: CategoryDishes.self, decoder: JSONDecoder())
+        .decode(type: type, decoder: JSONDecoder())
         .sink { _ in
           
-        } receiveValue: { dish in
-          promise(.success(dish))
+        } receiveValue: { T in
+          promise(.success(T))
         }
         .store(in: &self.subscriptions)
     }
     .eraseToAnyPublisher()
   }
   
-  func placeOrder(id: String, name: String, completion: @escaping (Result<Data, Error>) -> Void) {
-    guard let url = URL(string: NetworkTarget.baseUrl + NetworkTarget.placeOrder(id).description) else { return }
+  
+  func placeOrder(id: String, target: NetworkTarget, name: String, completion: @escaping (Result<Data, Error>) -> Void) {
+    guard let url = URL(string: target.link) else { return }
     let orderData = ["name": "\(name)"]
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
@@ -98,25 +76,6 @@ final class NetworkService {
     }.resume()
   }
   
-  func fetchOrders() -> AnyPublisher<Orders, Error> {
-    return Future { [weak self] promise in
-      guard let self = self else { return }
-      guard let url = URL(string: NetworkTarget.baseUrl + NetworkTarget.fetchOrders.description) else { return }
-      URLSession.shared.dataTaskPublisher(for: url)
-        .catch { error in return Fail(error: error) }
-        .map { $0.data }
-        .decode(type: Orders.self, decoder: JSONDecoder())
-        .receive(on: DispatchQueue.main)
-        .sink { _ in
-          
-        } receiveValue: { order in
-          print(order)
-          promise(.success(order))
-        }
-        .store(in: &self.subscriptions)
-    }
-    .eraseToAnyPublisher()
-  }
   
   private func handleResponce(data: Data?, responce: URLResponse?) -> UIImage? {
     guard let data = data,

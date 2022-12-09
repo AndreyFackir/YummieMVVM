@@ -21,20 +21,36 @@ class OrdersViewModel {
   // MARK: - Actions
   
   private func fetchOrders() {
-    NetworkService.shared.fetchOrders()
+    ProgressHUD.show()
+    NetworkService.shared.fetch(target: .fetchOrders, type: Orders?.self)
       .receive(on: DispatchQueue.main)
       .map { $0 }
-      .sink { completion in
+      .sink { completion  in
         switch completion {
           case .finished:
             ProgressHUD.dismiss()
-          case.failure(let error):
+          case .failure(let error):
             ProgressHUD.showError(error.localizedDescription)
         }
-      } receiveValue: { orders in
-        self.orders = orders
+      } receiveValue: { [weak self] orders in
+        self?.orders = orders
       }
       .store(in: &subscriptions)
+
+//    NetworkService.shared.fetchOrders()
+//      .receive(on: DispatchQueue.main)
+//      .map { $0 }
+//      .sink { completion in
+//        switch completion {
+//          case .finished:
+//            ProgressHUD.dismiss()
+//          case.failure(let error):
+//            ProgressHUD.showError(error.localizedDescription)
+//        }
+//      } receiveValue: { orders in
+//        self.orders = orders
+//      }
+//      .store(in: &subscriptions)
     
   }
 }
