@@ -37,7 +37,9 @@ final class NetworkService {
   
   // MARK: - Actions
   
-  func fetch<T:Decodable>(target: )
+  func fetch<T:Decodable>(target: NetworkTarget, type: T.Type) -> AnyPublisher<T, Error> {
+    
+  }
   
   func fetchDishes() -> AnyPublisher<AllDishes, Error> {
     return Future { [weak self] promise in
