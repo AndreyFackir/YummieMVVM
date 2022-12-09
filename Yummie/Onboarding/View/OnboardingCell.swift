@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class OnboardingCell: UICollectionViewCell {
+final class OnboardingCell: UICollectionViewCell {
   
   // MARK: - View Life Cycle
   override init(frame: CGRect) {
@@ -60,20 +60,19 @@ class OnboardingCell: UICollectionViewCell {
 }
 // MARK: - Setup
 
-extension OnboardingCell {
-  
-  private func setup() {
+private extension OnboardingCell {
+  func setup() {
     setupViews()
     setConstraints()
   }
   
-  private func setupViews() {
+  func setupViews() {
     addSubview(image)
     addSubview(topLabel)
     addSubview(bottomLabel)
   }
   
-  private func setConstraints() {
+  func setConstraints() {
     image.snp.makeConstraints { make in
       make.top.equalToSuperview()
       make.left.right.equalToSuperview()
