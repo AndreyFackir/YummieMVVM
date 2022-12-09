@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Combine
 
-class OnboardingViewController: UIViewController {
+final class OnboardingViewController: UIViewController {
   
   private let viewModel = OnboardingViewModel()
   private var subscriptions: Set<AnyCancellable> = []
@@ -23,7 +23,7 @@ class OnboardingViewController: UIViewController {
   }
   
   // MARK: - Properties
-  private let nextButton: UIButton = {
+  private lazy var nextButton: UIButton = {
     let element = UIButton(type: .system)
     element.translatesAutoresizingMaskIntoConstraints = false
     element.setTitle("Next", for: .normal)
@@ -93,26 +93,25 @@ class OnboardingViewController: UIViewController {
 }
 
 // MARK: - setupUI
-extension OnboardingViewController {
-  private func setup() {
+private extension OnboardingViewController {
+  func setup() {
     setupViews()
     setConstraints()
     setOnboardingCollection()
   }
   
-  private func setupViews() {
+  func setupViews() {
     view.addSubview(nextButton)
     view.addSubview(pageControl)
     view.addSubview(onboardingCollection)
   }
   
-  private func setOnboardingCollection() {
+  func setOnboardingCollection() {
     onboardingCollection.register(OnboardingCell.self, forCellWithReuseIdentifier: "onboardingCell")
     onboardingCollection.dataSource = self
-    onboardingCollection.delegate = self
   }
   
-  private func setConstraints() {
+  func setConstraints() {
     nextButton.snp.makeConstraints { make in
       make.bottom.equalToSuperview().inset(100)
       make.centerX.equalTo(view.snp_centerXWithinMargins)
@@ -131,7 +130,7 @@ extension OnboardingViewController {
 }
 // MARK: - UICollectionViewDataSource
 
-extension OnboardingViewController: UICollectionViewDataSource,UICollectionViewDelegate {
+extension OnboardingViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     viewModel.configureScreens().count
   }
