@@ -8,6 +8,26 @@
 import UIKit
 import Combine
 
+enum NetworkTarget {
+  case fetchAllCategories
+  case placeOrder(String)
+  case fetchCategoryDihes(String)
+  case fetchOrders
+  
+  var link: String {
+    switch self {
+      case .fetchAllCategories:
+        return "/dish-categories"
+      case .placeOrder(let dishId):
+        return "/orders/\(dishId)"
+      case .fetchCategoryDihes(let categoryId):
+        return "/dishes/\(categoryId)"
+      case .fetchOrders:
+        return "/orders"
+    }
+  }
+}
+
 final class NetworkService {
   
   // MARK: - Properties
@@ -17,10 +37,12 @@ final class NetworkService {
   
   // MARK: - Actions
   
+  func fetch<T:Decodable>(target: )
+  
   func fetchDishes() -> AnyPublisher<AllDishes, Error> {
     return Future { [weak self] promise in
       guard let self = self else { return }
-      guard let url = URL(string: Constants.baseUrl + Constants.fetchAllCategories.description) else { return }
+      guard let url = URL(string: NetworkTarget.baseUrl + NetworkTarget.fetchAllCategories.description) else { return }
       URLSession.shared.dataTaskPublisher(for: url)
         .catch { error in return Fail(error: error) }
         .map { $0.data }
@@ -39,7 +61,7 @@ final class NetworkService {
   func fetchCategoryDishes(categoryDish: String) -> AnyPublisher<CategoryDishes, Error> {
     return Future { [weak self] promise in
       guard let self = self else { return }
-      guard let url = URL(string: Constants.baseUrl + Constants.fetchCategoryDihes(categoryDish).description) else { return }
+      guard let url = URL(string: NetworkTarget.baseUrl + NetworkTarget.fetchCategoryDihes(categoryDish).description) else { return }
       URLSession.shared.dataTaskPublisher(for: url)
         .receive(on: DispatchQueue.main)
         .catch { error in Fail(error: error) }
@@ -56,7 +78,7 @@ final class NetworkService {
   }
   
   func placeOrder(id: String, name: String, completion: @escaping (Result<Data, Error>) -> Void) {
-    guard let url = URL(string: Constants.baseUrl + Constants.placeOrder(id).description) else { return }
+    guard let url = URL(string: NetworkTarget.baseUrl + NetworkTarget.placeOrder(id).description) else { return }
     let orderData = ["name": "\(name)"]
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
@@ -77,7 +99,7 @@ final class NetworkService {
   func fetchOrders() -> AnyPublisher<Orders, Error> {
     return Future { [weak self] promise in
       guard let self = self else { return }
-      guard let url = URL(string: Constants.baseUrl + Constants.fetchOrders.description) else { return }
+      guard let url = URL(string: NetworkTarget.baseUrl + NetworkTarget.fetchOrders.description) else { return }
       URLSession.shared.dataTaskPublisher(for: url)
         .catch { error in return Fail(error: error) }
         .map { $0.data }
