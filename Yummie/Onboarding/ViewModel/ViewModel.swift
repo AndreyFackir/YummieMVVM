@@ -8,8 +8,7 @@
 import UIKit
 import Combine
 
-
-class OnboardingViewModel {
+final class OnboardingViewModel {
   
   // MARK: - Properties
   var onboardingModel: OnboardingModel?
