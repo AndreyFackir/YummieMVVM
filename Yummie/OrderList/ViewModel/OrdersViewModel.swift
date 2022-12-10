@@ -9,10 +9,11 @@ import UIKit
 import Combine
 import ProgressHUD
 
-class OrdersViewModel {
-  
+final class OrdersViewModel {
   @Published var orders: Orders?
   private var subscriptions: Set<AnyCancellable> = []
+  
+  // MARK: - Init
   
   init() {
     fetchOrders()
@@ -36,21 +37,5 @@ class OrdersViewModel {
         self?.orders = orders
       }
       .store(in: &subscriptions)
-
-//    NetworkService.shared.fetchOrders()
-//      .receive(on: DispatchQueue.main)
-//      .map { $0 }
-//      .sink { completion in
-//        switch completion {
-//          case .finished:
-//            ProgressHUD.dismiss()
-//          case.failure(let error):
-//            ProgressHUD.showError(error.localizedDescription)
-//        }
-//      } receiveValue: { orders in
-//        self.orders = orders
-//      }
-//      .store(in: &subscriptions)
-    
   }
 }

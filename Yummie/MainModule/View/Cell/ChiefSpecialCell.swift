@@ -8,8 +8,7 @@
 import UIKit
 import Combine
 
-class ChiefSpecialCell: UICollectionViewCell {
-  
+final class ChiefSpecialCell: UICollectionViewCell {
   private var subscriptions: Set<AnyCancellable> = []
   
   // MARK: - View Life Cycle
@@ -55,7 +54,7 @@ class ChiefSpecialCell: UICollectionViewCell {
     return element
   }()
   
-  var descriptionTitle: UILabel = {
+  private let descriptionTitle: UILabel = {
     let element = UILabel()
     element.translatesAutoresizingMaskIntoConstraints = false
     element.textColor = .gray
@@ -69,26 +68,26 @@ class ChiefSpecialCell: UICollectionViewCell {
     caloriesTitle.text = "\(model.calories) kCal"
     descriptionTitle.text = model.description
     let imageUrl = model.image
-    NetworkService.shared.getImage(url: imageUrl)
+    chiefSpecialImage.loadImage(url: imageUrl)
       .receive(on: DispatchQueue.main)
       .sink { _ in
-
-      } receiveValue: { [weak self] image in
-        self?.chiefSpecialImage.image = image
+        
+      } receiveValue: {image in
+        self.chiefSpecialImage.image = image
       }
       .store(in: &subscriptions)
   }
 }
 
 // MARK: - Setup
-extension ChiefSpecialCell {
+private extension ChiefSpecialCell {
   
-  private func setup() {
+  func setup() {
     setupViews()
     setConstraints()
   }
   
-  private func setupViews() {
+  func setupViews() {
     addSubview(chiefSpecialImage)
     addSubview(chiefSpecialTitle)
     addSubview(caloriesTitle)
@@ -98,24 +97,21 @@ extension ChiefSpecialCell {
     addShadowOnView()
   }
   
-  private func setConstraints() {
+  func setConstraints() {
     chiefSpecialImage.snp.makeConstraints { make in
       make.top.leading.bottom.equalToSuperview().inset(10)
       make.width.equalToSuperview().multipliedBy(0.2)
     }
-    
     chiefSpecialTitle.snp.makeConstraints { make in
       make.top.equalToSuperview().inset(10)
       make.leading.equalTo(chiefSpecialImage.snp_trailingMargin).inset(-20)
       make.trailing.equalToSuperview().inset(5)
     }
-    
     descriptionTitle.snp.makeConstraints { make in
       make.top.equalTo(chiefSpecialTitle.snp_bottomMargin).inset(-10)
       make.leading.equalTo(chiefSpecialImage.snp_trailingMargin).inset(-20)
       make.trailing.equalToSuperview().inset(5)
     }
-    
     caloriesTitle.snp.makeConstraints { make in
       make.top.equalTo(descriptionTitle.snp_bottomMargin).inset(-10)
       make.leading.equalTo(chiefSpecialImage.snp_trailingMargin).inset(-20)

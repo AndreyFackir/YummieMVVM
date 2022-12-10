@@ -29,9 +29,6 @@ enum NetworkTarget {
 }
 
 final class NetworkService {
-  
-  // MARK: - Properties
-  
   static let shared = NetworkService()
   private var subscriptions: Set<AnyCancellable> = []
   
@@ -56,7 +53,6 @@ final class NetworkService {
     .eraseToAnyPublisher()
   }
   
-  
   func placeOrder(id: String, target: NetworkTarget, name: String, completion: @escaping (Result<Data, Error>) -> Void) {
     guard let url = URL(string: target.link) else { return }
     let orderData = ["name": "\(name)"]
@@ -74,23 +70,5 @@ final class NetworkService {
         completion(.failure(error))
       }
     }.resume()
-  }
-  
-  
-  private func handleResponce(data: Data?, responce: URLResponse?) -> UIImage? {
-    guard let data = data,
-          let image = UIImage(data: data),
-          let response = responce as? HTTPURLResponse,
-          response.statusCode >= 200 && response.statusCode <= 300 else { return nil }
-    return image
-  }
-  
-  func getImage(url: String) -> AnyPublisher<UIImage?, Error> {
-    guard let imageUrl = URL(string: url) else { fatalError("Invalid Url")}
-    return URLSession.shared.dataTaskPublisher(for: imageUrl)
-      .receive(on: DispatchQueue.main)
-      .map(handleResponce)
-      .mapError({ $0 })
-      .eraseToAnyPublisher()
   }
 }

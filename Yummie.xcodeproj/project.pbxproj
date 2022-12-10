@@ -17,6 +17,7 @@
 		8141816D29190B0F00CCE37B /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8141816C29190B0F00CCE37B /* UITextField.swift */; };
 		8141817029192BED00CCE37B /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8141816F29192BED00CCE37B /* Order.swift */; };
 		8141817C29240AFC00CCE37B /* DishListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8141817B29240AFB00CCE37B /* DishListCell.swift */; };
+		815945E2294499DD00347399 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815945E1294499DD00347399 /* UIImageView.swift */; };
 		81B0879B2909728600DBC398 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B0879A2909728600DBC398 /* AppDelegate.swift */; };
 		81B0879D2909728600DBC398 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B0879C2909728600DBC398 /* SceneDelegate.swift */; };
 		81B0879F2909728600DBC398 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B0879E2909728600DBC398 /* OnboardingViewController.swift */; };
@@ -58,6 +59,7 @@
 		8141816C29190B0F00CCE37B /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		8141816F29192BED00CCE37B /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		8141817B29240AFB00CCE37B /* DishListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishListCell.swift; sourceTree = "<group>"; };
+		815945E1294499DD00347399 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		81B087972909728600DBC398 /* Yummie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yummie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81B0879A2909728600DBC398 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81B0879C2909728600DBC398 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				8141816629157BA400CCE37B /* UIView.swift */,
 				8141816C29190B0F00CCE37B /* UITextField.swift */,
 				81D894162926CF77000AD438 /* UserDefaults.swift */,
+				815945E1294499DD00347399 /* UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				8141817C29240AFC00CCE37B /* DishListCell.swift in Sources */,
 				81B087BA2909C01700DBC398 /* OnboardingModel.swift in Sources */,
 				8141815729141D8800CCE37B /* NetworkService.swift in Sources */,
+				815945E2294499DD00347399 /* UIImageView.swift in Sources */,
 				81D8940C292575D5000AD438 /* Model.swift in Sources */,
 				81B088242910525B00DBC398 /* DetialViewController.swift in Sources */,
 				81B0879B2909728600DBC398 /* AppDelegate.swift in Sources */,

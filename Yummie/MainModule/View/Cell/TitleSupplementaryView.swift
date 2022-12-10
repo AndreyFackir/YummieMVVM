@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TitleSupplementaryView: UICollectionReusableView {
+final class TitleSupplementaryView: UICollectionReusableView {
   
   // MARK: - View Life Cycle
   
@@ -32,18 +32,19 @@ class TitleSupplementaryView: UICollectionReusableView {
     return element
   }()
 }
+
 // MARK: - Setup
-extension TitleSupplementaryView {
-  private func setup() {
+private extension TitleSupplementaryView {
+  func setup() {
     setupViews()
     setConstraints()
   }
   
-  private func setupViews() {
+  func setupViews() {
     addSubview(headerLabel)
   }
   
-  private func setConstraints() {
+  func setConstraints() {
     headerLabel.snp.makeConstraints { make in
       make.leading.trailing.equalToSuperview().offset(10)
     }

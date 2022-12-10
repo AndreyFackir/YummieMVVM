@@ -22,5 +22,4 @@ extension UIFont {
   static let sanFranciscoUltraLight40 = UIFont(name: "SF Pro Display Ultralight", size: 40)
   static let sanFranciscoRegular40 = UIFont(name: "SF Pro Display Regular", size: 40)
   static let sanFranciscoMedium40 = UIFont(name: "SF Pro Display Medium", size: 40)
-
 }
