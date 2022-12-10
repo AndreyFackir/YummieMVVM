@@ -60,13 +60,14 @@ extension OrderListViewController {
   private func setupViews() {
     view.addSubview(orderListCollection)
     orderListCollection.dataSource = self
-    orderListCollection.delegate = self
     orderListCollection.register(OrderCollectionViewCell.self, forCellWithReuseIdentifier: "orderList")
+    view.backgroundColor = .specialBackground
   }
   
   private func setConstraints() {
     orderListCollection.snp.makeConstraints { make in
-      make.top.leading.bottom.trailing.equalToSuperview()
+      make.top.equalTo(view.safeAreaLayoutGuide)
+      make.left.right.bottom.equalToSuperview()
     }
   }
 }
@@ -82,16 +83,5 @@ extension OrderListViewController: UICollectionViewDataSource {
     guard let model = ordersViewModel.orders?.data[indexPath.item] else { return .init() }
     cell.configureCell(model: model)
     return cell
-  }
-  
-  
-}
-// MARK: - UICollectionViewDelegate
-extension OrderListViewController: UICollectionViewDelegate {
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    guard let dishOrders = ordersViewModel.orders?.data[indexPath.item] else { return }
-    let detailVM = DetailViewModel(dishOrders: dishOrders)
-    let detailVC = DetialViewController(detailViewModel: detailVM)
-    navigationController?.pushViewController(detailVC, animated: true)
   }
 }
