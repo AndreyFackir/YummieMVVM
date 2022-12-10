@@ -9,9 +9,7 @@ import UIKit
 import ProgressHUD
 import Combine
 
-class DetailViewModel {
-  
-  // MARK: - Properties
+final class DetailViewModel {
   @Published var dish: Dish?
   @Published var order: Orders?
   @Published var nameTextField = ""
@@ -19,6 +17,8 @@ class DetailViewModel {
   @Published var dishOrders: DishOrders?
   private var subscriptions: Set<AnyCancellable> = []
   let nameText = PassthroughSubject<String, Never>()
+  
+  // MARK: - Init
   
   init(dish: Dish) {
     self.dish = dish
@@ -34,19 +34,7 @@ class DetailViewModel {
   
   
   // MARK: - Actions
-  
-  func getImage(from url: String, completion: @escaping (UIImage) -> Void) {
-    guard let imageUrl = URL(string: url) else { return }
-    URLSession.shared.dataTask(with: imageUrl) { data, _, error in
-      if let data = data, let image = UIImage(data: data) {
-        DispatchQueue.main.async {
-          completion(image)
-        }
-      }
-    }.resume()
-  }
-  
-  
+ 
   func placeOrder(id: String, name: String) {
     NetworkService.shared.placeOrder(id: id, target: .placeOrder(id), name: name) { completion in
       switch completion {

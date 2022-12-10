@@ -9,8 +9,7 @@ import UIKit
 import SnapKit
 import Combine
 
-class DishListViewController: UIViewController {
-  
+final class DishListViewController: UIViewController {
   private var dishViewModel: DishViewModel
   private var subscriptions: Set< AnyCancellable> = []
   
@@ -40,9 +39,7 @@ class DishListViewController: UIViewController {
       
       let section = NSCollectionLayoutSection(group: group)
       return section
-      
     }
-    
     let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
     collection.translatesAutoresizingMaskIntoConstraints = false
     collection.showsVerticalScrollIndicator = false
@@ -60,24 +57,23 @@ class DishListViewController: UIViewController {
   }
 }
 
-
 // MARK: - Setup
 
-extension DishListViewController {
+private extension DishListViewController {
   
-  private func setup() {
+  func setup() {
     setupViews()
     setConstraints()
   }
   
-  private func setupViews() {
+  func setupViews() {
     view.addSubview(dishListCollection)
     dishListCollection.dataSource = self
     dishListCollection.delegate = self
     dishListCollection.register(DishListCell.self, forCellWithReuseIdentifier: "dishList")
   }
   
-  private func setConstraints() {
+  func setConstraints() {
     dishListCollection.snp.makeConstraints { make in
       make.top.leading.bottom.trailing.equalToSuperview()
     }
@@ -96,8 +92,6 @@ extension DishListViewController: UICollectionViewDataSource {
     cell.configureCell(model: model)
     return cell
   }
-  
-  
 }
 // MARK: - UICollectionViewDelegate
 extension DishListViewController: UICollectionViewDelegate {

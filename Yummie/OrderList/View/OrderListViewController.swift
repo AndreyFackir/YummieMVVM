@@ -9,8 +9,7 @@ import UIKit
 import Combine
 import SnapKit
 
-class OrderListViewController: UIViewController {
-  
+final class OrderListViewController: UIViewController {
   let ordersViewModel = OrdersViewModel()
   private var subscriptions: Set<AnyCancellable> = []
   
@@ -18,7 +17,6 @@ class OrderListViewController: UIViewController {
     super.viewDidLoad()
     setup()
     binding()
-    
   }
   
   // MARK: - Properties
@@ -46,25 +44,24 @@ class OrderListViewController: UIViewController {
       .sink { _ in self.orderListCollection.reloadData() }
       .store(in: &subscriptions)
   }
-  
 }
 // MARK: - Setup
 
-extension OrderListViewController {
+private extension OrderListViewController {
   
-  private func setup() {
+  func setup() {
     setupViews()
     setConstraints()
   }
   
-  private func setupViews() {
+  func setupViews() {
     view.addSubview(orderListCollection)
     orderListCollection.dataSource = self
     orderListCollection.register(OrderCollectionViewCell.self, forCellWithReuseIdentifier: "orderList")
     view.backgroundColor = .specialBackground
   }
   
-  private func setConstraints() {
+  func setConstraints() {
     orderListCollection.snp.makeConstraints { make in
       make.top.equalTo(view.safeAreaLayoutGuide)
       make.left.right.bottom.equalToSuperview()

@@ -9,17 +9,17 @@ import UIKit
 import Combine
 import ProgressHUD
 
-class MainViewModel {
-  
-  // MARK: - Properties
+final class MainViewModel {
   @Published var dishes: AllDishes?
   private var subscriptions: Set<AnyCancellable> = []
   
-  // MARK: - Actions
+  // MARK: - Init
   
   init() {
     fetchDishes()
   }
+  
+  // MARK: - Actions
   
   private func fetchDishes() {
     ProgressHUD.show()

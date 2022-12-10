@@ -9,8 +9,7 @@ import UIKit
 import Combine
 
 
-class HomeFoodCategoryCell: UICollectionViewCell {
-  
+final class HomeFoodCategoryCell: UICollectionViewCell {
   private var subscriptions: Set<AnyCancellable> = []
   
   override init(frame: CGRect) {
@@ -27,20 +26,9 @@ class HomeFoodCategoryCell: UICollectionViewCell {
     foodCategoryImage.image = nil
   }
   
-//  override var isSelected: Bool {
-//    didSet {
-//      if isSelected {
-//        layer.borderWidth = 2
-//        layer.borderColor = UIColor.red.cgColor
-//      } else {
-//        layer.borderWidth = 0
-//      }
-//    }
-//  }
-  
   // MARK: - Properties
   
-   let foodCategoryImage: UIImageView = {
+  private let foodCategoryImage: UIImageView = {
     let element = UIImageView()
     element.translatesAutoresizingMaskIntoConstraints = false
     element.layer.masksToBounds = true
@@ -48,7 +36,7 @@ class HomeFoodCategoryCell: UICollectionViewCell {
     return element
   }()
   
-  let foodCategoryTitle: UILabel = {
+  private let foodCategoryTitle: UILabel = {
     let element = UILabel()
     element.translatesAutoresizingMaskIntoConstraints = false
     element.textColor = .black
@@ -60,26 +48,26 @@ class HomeFoodCategoryCell: UICollectionViewCell {
   func configureCell(with model: DishCategory , indexPath: Int) {
     foodCategoryTitle.text = model.title
     let imageUrl = model.image
-    NetworkService.shared.getImage(url: imageUrl)
+    foodCategoryImage.loadImage(url: imageUrl)
       .receive(on: DispatchQueue.main)
       .sink { _ in
-
-      } receiveValue: { [weak self] image in
-        self?.foodCategoryImage.image = image
+        
+      } receiveValue: {image in
+        self.foodCategoryImage.image = image
       }
       .store(in: &subscriptions)
   }
 }
 
 // MARK: - Setup
-extension HomeFoodCategoryCell {
+private extension HomeFoodCategoryCell {
   
-  private func setup() {
+  func setup() {
     setupViews()
     setConstraints()
   }
   
-  private func setupViews() {
+  func setupViews() {
     addSubview(foodCategoryImage)
     addSubview(foodCategoryTitle)
     layer.cornerRadius = 10
@@ -87,12 +75,11 @@ extension HomeFoodCategoryCell {
     addShadowOnView()
   }
   
-  private func setConstraints() {
+  func setConstraints() {
     foodCategoryImage.snp.makeConstraints { make in
       make.width.height.equalToSuperview().multipliedBy(0.7)
       make.centerX.equalToSuperview()
     }
-    
     foodCategoryTitle.snp.makeConstraints { make in
       make.bottom.equalToSuperview().inset(5)
       make.centerX.equalToSuperview()

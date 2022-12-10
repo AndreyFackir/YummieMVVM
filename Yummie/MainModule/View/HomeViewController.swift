@@ -113,7 +113,7 @@ private extension HomeViewController {
     homeCollection.register(ChiefSpecialCell.self, forCellWithReuseIdentifier: "special")
   }
   
-  private func setConstraints() {
+  func setConstraints() {
     homeCollection.snp.makeConstraints { make in
       make.top.equalTo(view.safeAreaLayoutGuide)
       make.left.right.bottom.equalToSuperview()

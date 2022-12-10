@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class OrderCollectionViewCell: UICollectionViewCell {
+final class OrderCollectionViewCell: UICollectionViewCell {
   private var subscriptions: Set<AnyCancellable> = []
   
   override init(frame: CGRect) {
@@ -31,7 +31,7 @@ class OrderCollectionViewCell: UICollectionViewCell {
     return element
   }()
   
-  let dishTitle: UILabel = {
+  private let dishTitle: UILabel = {
     let element = UILabel()
     element.translatesAutoresizingMaskIntoConstraints = false
     element.font = .sanFranciscoMedium20
@@ -52,26 +52,26 @@ class OrderCollectionViewCell: UICollectionViewCell {
     dishTitle.text = model.dish.name
     clientName.text = model.name
     let imageUrl = model.dish.image
-    NetworkService.shared.getImage(url: imageUrl)
+    dishImage.loadImage(url: imageUrl)
       .receive(on: DispatchQueue.main)
       .sink { _ in
         
-      } receiveValue: { [weak self] image in
-        self?.dishImage.image = image
+      } receiveValue: { image in
+        self.dishImage.image = image
       }
       .store(in: &subscriptions)
   }
 }
 // MARK: - Setup
 
-extension OrderCollectionViewCell {
+private extension OrderCollectionViewCell {
   
-  private func setup() {
+  func setup() {
     setupViews()
     setConstraints()
   }
   
-  private func setupViews() {
+  func setupViews() {
     addSubview(dishImage)
     addSubview(dishTitle)
     addSubview(clientName)
@@ -80,7 +80,7 @@ extension OrderCollectionViewCell {
     addShadowOnView()
   }
   
-  private func setConstraints() {
+  func setConstraints() {
     dishImage.snp.makeConstraints { make in
       make.leading.equalToSuperview().offset(10)
       make.height.equalToSuperview().multipliedBy(0.9)
@@ -92,7 +92,6 @@ extension OrderCollectionViewCell {
       make.leading.equalTo(dishImage.snp.trailingMargin).offset(20)
       make.trailing.equalToSuperview().inset(10)
     }
-    
     clientName.snp.makeConstraints { make in
       make.top.equalTo(dishTitle.snp.bottom).offset(10)
       make.leading.equalTo(dishImage.snp.trailingMargin).offset(20)
