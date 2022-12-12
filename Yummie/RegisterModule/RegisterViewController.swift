@@ -115,7 +115,7 @@ final class RegisterViewController: UIViewController {
   }
   
   func bindings() {
-    
+    print("A")
   }
 }
 
