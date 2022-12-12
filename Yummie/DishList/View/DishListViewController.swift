@@ -68,6 +68,7 @@ private extension DishListViewController {
   
   func setupViews() {
     view.addSubview(dishListCollection)
+    view.backgroundColor = .specialBackground
     dishListCollection.dataSource = self
     dishListCollection.delegate = self
     dishListCollection.register(DishListCell.self, forCellWithReuseIdentifier: "dishList")
@@ -75,10 +76,10 @@ private extension DishListViewController {
   
   func setConstraints() {
     dishListCollection.snp.makeConstraints { make in
-      make.top.leading.bottom.trailing.equalToSuperview()
+      make.top.equalTo(view.safeAreaLayoutGuide)
+      make.left.right.bottom.equalToSuperview()
     }
   }
-  
 }
 // MARK: - UICollectionViewDataSource
 extension DishListViewController: UICollectionViewDataSource {
