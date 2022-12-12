@@ -1,17 +1,15 @@
 //
-//  LoginViewController.swift
+//  RegisterViewController.swift
 //  Yummie
 //
 //  Created by Андрей Яфаркин on 12.12.2022.
 //
 
 import UIKit
-import SnapKit
 import Combine
 
-final class LoginViewController: UIViewController {
+final class RegisterViewController: UIViewController {
   private var subscription: Set<AnyCancellable> = []
-  private let viewModel = LoginViewModel()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -21,13 +19,28 @@ final class LoginViewController: UIViewController {
   
   // MARK: - Properties
   
-  private let loginVCLabel: UILabel = {
+  private let createAccountLabel: UILabel = {
     let element = UILabel()
     element.translatesAutoresizingMaskIntoConstraints = false
-    element.text = "Login"
+    element.text = "Create Account"
     element.font = .sanFranciscoMedium40
     return element
   }()
+  
+  private let fullnameTextField: UITextField = {
+    let element = UITextField()
+    element.translatesAutoresizingMaskIntoConstraints = false
+    element.clearButtonMode = .always
+    element.layer.cornerRadius = 20
+    element.font = .sanFranciscoMedium20
+    element.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: element.frame.height))
+    element.leftViewMode = .always
+    element.returnKeyType = .done
+    element.placeholder = "First name Last name"
+    element.backgroundColor = .white
+    return element
+  }()
+  
   private let mailTextField: UITextField = {
     let element = UITextField()
     element.translatesAutoresizingMaskIntoConstraints = false
@@ -57,48 +70,48 @@ final class LoginViewController: UIViewController {
     return element
   }()
   
-  private let signInButton: UIButton = {
+  private let getStartedButton: UIButton = {
     let element = UIButton(type: .system)
     element.translatesAutoresizingMaskIntoConstraints = false
-    element.setTitle("Sign In", for: .normal)
+    element.setTitle("Get Started", for: .normal)
     element.layer.cornerRadius = 20
     element.titleLabel?.font = .sanFranciscoMedium20
     element.tintColor = .white
     element.backgroundColor = .specialPurple
-    element.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
+    element.addTarget(self, action: #selector(getStartedButtonTapped), for: .touchUpInside)
     return element
   }()
   
-  private let registerLabel: UILabel = {
+  private let haveAcountLabel: UILabel = {
     let element = UILabel()
     element.translatesAutoresizingMaskIntoConstraints = false
     element.textColor = .systemGray
-    element.text = "Don't have an account?"
+    element.text = "Already have an account?"
     return element
   }()
   
-  private let registerButton: UIButton = {
+  private let loginButton: UIButton = {
     let element = UIButton(type: .system)
     element.translatesAutoresizingMaskIntoConstraints = false
-    element.setTitle("Register", for: .normal)
+    element.setTitle("Login", for: .normal)
     element.titleLabel?.font = .sanFranciscoLight20
     element.setTitleColor(.specialPurple, for: .normal)
-    element.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
+    element.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
     return element
   }()
   
   private var stackView = UIStackView()
   
   // MARK: - Methods
-  @objc private func signInButtonTapped() {
+  @objc private func getStartedButtonTapped() {
     print("signInButtonTapped")
   }
   
-  @objc private func registerButtonTapped() {
+  @objc private func loginButtonTapped() {
     print("registerButtonTapped")
-    let registrVC = RegisterViewController()
-    registrVC.modalPresentationStyle = .fullScreen
-    present(registrVC, animated: true, completion: nil)
+    let loginVC = LoginViewController()
+    loginVC.modalPresentationStyle = .fullScreen
+    present(loginVC, animated: true, completion: nil)
   }
   
   func bindings() {
@@ -107,7 +120,7 @@ final class LoginViewController: UIViewController {
 }
 
 // MARK: - Setup
-private extension LoginViewController {
+private extension RegisterViewController {
   func setup() {
     view.backgroundColor = .specialBackground
     setupViews()
@@ -115,21 +128,27 @@ private extension LoginViewController {
   }
   
   func setupViews() {
-    view.addSubview(loginVCLabel)
+    view.addSubview(createAccountLabel)
     view.addSubview(mailTextField)
     view.addSubview(passwordTextField)
-    view.addSubview(signInButton)
-    stackView = UIStackView(arrangedSubviews: [registerLabel, registerButton], axis: .horizontal, spacing: 10)
+    view.addSubview(getStartedButton)
+    view.addSubview(fullnameTextField)
+    stackView = UIStackView(arrangedSubviews: [haveAcountLabel, loginButton], axis: .horizontal, spacing: 10)
     view.addSubview(stackView)
   }
   
   func setConstraints() {
-    loginVCLabel.snp.makeConstraints { make in
+    createAccountLabel.snp.makeConstraints { make in
       make.top.equalToSuperview().inset(100)
       make.centerX.equalToSuperview()
     }
+    fullnameTextField.snp.makeConstraints { make in
+      make.top.equalTo(createAccountLabel.snp_bottomMargin).inset(-30)
+      make.leading.trailing.equalToSuperview().inset(20)
+      make.height.equalTo(60)
+    }
     mailTextField.snp.makeConstraints { make in
-      make.top.equalTo(loginVCLabel.snp_bottomMargin).inset(-30)
+      make.top.equalTo(fullnameTextField.snp_bottomMargin).inset(-30)
       make.leading.trailing.equalToSuperview().inset(20)
       make.height.equalTo(60)
     }
@@ -138,14 +157,17 @@ private extension LoginViewController {
       make.leading.trailing.equalToSuperview().inset(20)
       make.height.equalTo(60)
     }
-    signInButton.snp.makeConstraints { make in
+    getStartedButton.snp.makeConstraints { make in
       make.top.equalTo(passwordTextField.snp_bottomMargin).inset(-50)
       make.leading.trailing.equalToSuperview().inset(20)
       make.height.equalTo(60)
     }
     stackView.snp.makeConstraints { make in
-      make.top.equalTo(signInButton.snp_bottomMargin).inset(-30)
+      make.top.equalTo(getStartedButton.snp_bottomMargin).inset(-30)
       make.centerX.equalToSuperview()
     }
   }
 }
+
+
+
