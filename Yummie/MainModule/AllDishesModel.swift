@@ -1,5 +1,5 @@
 //
-//  Model.swift
+//  AllDishesModel.swift
 //  Yummie
 //
 //  Created by Андрей Яфаркин on 03.11.2022.
