@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     window = UIWindow(windowScene: windowScene)
     var controller = UIViewController()
     if UserDefaults.standard.isOnbardingViewed {
-      controller = HomeViewController()
+      controller = LoginViewController()
     } else {
       controller = OnboardingViewController()
     }

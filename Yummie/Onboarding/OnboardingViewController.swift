@@ -59,7 +59,7 @@ final class OnboardingViewController: UIViewController {
     return collection
   }()
   
-  // MARK: - Actions
+  // MARK: - Methods
   
   @objc private func nextButtonTapped() {
     buttonTapped += 1
