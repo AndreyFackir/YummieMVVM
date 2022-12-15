@@ -19,22 +19,26 @@ final class DetailViewModel {
   let nameText = PassthroughSubject<String, Never>()
   
   // MARK: - Init
+  init(){}
   
-  init(dish: Dish) {
+  convenience init(dish: Dish) {
+    self.init()
     self.dish = dish
   }
   
-  init(datum: Datum) {
+  convenience init(datum: Datum) {
+    self.init()
     self.datum = datum
   }
   
-  init(dishOrders: DishOrders) {
+  convenience init(dishOrders: DishOrders) {
+    self.init()
     self.dishOrders = dishOrders
   }
   
   
   // MARK: - Actions
- 
+  
   func placeOrder(id: String, name: String) {
     NetworkService.shared.placeOrder(id: id, target: .placeOrder(id), name: name) { completion in
       switch completion {

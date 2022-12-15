@@ -245,6 +245,7 @@
 			children = (
 				8141815A291421C200CCE37B /* AllDishesModel.swift */,
 				81B08808290BD6ED00DBC398 /* HomeViewController.swift */,
+				8141815C291423F500CCE37B /* MainViewModel.swift */,
 				81B08816290C076100DBC398 /* Cell */,
 			);
 			path = MainModule;
@@ -262,7 +263,6 @@
 		81B08816290C076100DBC398 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				8141815C291423F500CCE37B /* MainViewModel.swift */,
 				81B08819290C09D700DBC398 /* HomeFoodCategoryCell.swift */,
 				81B0881B29103ABD00DBC398 /* PopularDishesCell.swift */,
 				81B0881D29103AD000DBC398 /* ChiefSpecialCell.swift */,
