@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
     UINavigationBar.appearance().shadowImage = UIImage()
     UINavigationBar.appearance().tintColor = .black
-    FirebaseApp.configure()
+    FirebaseApp.configure() //user@user.com user123
     
     return true
   }
