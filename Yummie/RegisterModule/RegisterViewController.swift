@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import Firebase
 
 final class RegisterViewController: UIViewController {
   private var subscription: Set<AnyCancellable> = []
@@ -41,7 +42,7 @@ final class RegisterViewController: UIViewController {
     return element
   }()
   
-  private let mailTextField: UITextField = {
+  private let emailTextField: UITextField = {
     let element = UITextField()
     element.translatesAutoresizingMaskIntoConstraints = false
     element.clearButtonMode = .always
@@ -70,15 +71,15 @@ final class RegisterViewController: UIViewController {
     return element
   }()
   
-  private let getStartedButton: UIButton = {
+  private let registerButton: UIButton = {
     let element = UIButton(type: .system)
     element.translatesAutoresizingMaskIntoConstraints = false
-    element.setTitle("Get Started", for: .normal)
+    element.setTitle("Register", for: .normal)
     element.layer.cornerRadius = 20
     element.titleLabel?.font = .sanFranciscoMedium20
     element.tintColor = .white
     element.backgroundColor = .specialPurple
-    element.addTarget(self, action: #selector(getStartedButtonTapped), for: .touchUpInside)
+    element.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
     return element
   }()
   
@@ -103,8 +104,20 @@ final class RegisterViewController: UIViewController {
   private var stackView = UIStackView()
   
   // MARK: - Methods
-  @objc private func getStartedButtonTapped() {
+  @objc private func registerButtonTapped() {
     print("signInButtonTapped")
+    guard let email = emailTextField.text, let password = passwordTextField.text else { return }
+    Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
+      if let error = error {
+        print(error.localizedDescription)
+      } else {
+        //Navigate to mainScreen
+        let mainVC = HomeViewController()
+        mainVC.modalPresentationStyle = .fullScreen
+        self?.present(mainVC, animated: true, completion: nil)
+      }
+      
+    }
   }
   
   @objc private func loginButtonTapped() {
@@ -129,9 +142,9 @@ private extension RegisterViewController {
   
   func setupViews() {
     view.addSubview(createAccountLabel)
-    view.addSubview(mailTextField)
+    view.addSubview(emailTextField)
     view.addSubview(passwordTextField)
-    view.addSubview(getStartedButton)
+    view.addSubview(registerButton)
     view.addSubview(fullnameTextField)
     stackView = UIStackView(arrangedSubviews: [haveAcountLabel, loginButton], axis: .horizontal, spacing: 10)
     view.addSubview(stackView)
@@ -147,23 +160,23 @@ private extension RegisterViewController {
       make.leading.trailing.equalToSuperview().inset(20)
       make.height.equalTo(60)
     }
-    mailTextField.snp.makeConstraints { make in
+    emailTextField.snp.makeConstraints { make in
       make.top.equalTo(fullnameTextField.snp_bottomMargin).inset(-30)
       make.leading.trailing.equalToSuperview().inset(20)
       make.height.equalTo(60)
     }
     passwordTextField.snp.makeConstraints { make in
-      make.top.equalTo(mailTextField.snp_bottomMargin).inset(-30)
+      make.top.equalTo(emailTextField.snp_bottomMargin).inset(-30)
       make.leading.trailing.equalToSuperview().inset(20)
       make.height.equalTo(60)
     }
-    getStartedButton.snp.makeConstraints { make in
+    registerButton.snp.makeConstraints { make in
       make.top.equalTo(passwordTextField.snp_bottomMargin).inset(-50)
       make.leading.trailing.equalToSuperview().inset(20)
       make.height.equalTo(60)
     }
     stackView.snp.makeConstraints { make in
-      make.top.equalTo(getStartedButton.snp_bottomMargin).inset(-30)
+      make.top.equalTo(registerButton.snp_bottomMargin).inset(-30)
       make.centerX.equalToSuperview()
     }
   }
