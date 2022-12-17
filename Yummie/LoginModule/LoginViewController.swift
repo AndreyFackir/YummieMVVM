@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Combine
+import Firebase
 
 final class LoginViewController: UIViewController {
   private var subscription: Set<AnyCancellable> = []
@@ -28,7 +29,7 @@ final class LoginViewController: UIViewController {
     element.font = .sanFranciscoMedium40
     return element
   }()
-  private let mailTextField: UITextField = {
+  private let emailTextField: UITextField = {
     let element = UITextField()
     element.translatesAutoresizingMaskIntoConstraints = false
     element.clearButtonMode = .always
@@ -91,7 +92,17 @@ final class LoginViewController: UIViewController {
   
   // MARK: - Methods
   @objc private func signInButtonTapped() {
-    print("signInButtonTapped")
+    guard let email = emailTextField.text, let password = passwordTextField.text else { return }
+    Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+      if let error = error {
+        print(error.localizedDescription)
+      } else {
+        let mainVC = HomeViewController()
+        mainVC.modalPresentationStyle = .fullScreen
+        self?.present(mainVC, animated: true, completion: nil)
+      }
+      
+    }
   }
   
   @objc private func registerButtonTapped() {
@@ -116,7 +127,7 @@ private extension LoginViewController {
   
   func setupViews() {
     view.addSubview(loginVCLabel)
-    view.addSubview(mailTextField)
+    view.addSubview(emailTextField)
     view.addSubview(passwordTextField)
     view.addSubview(signInButton)
     stackView = UIStackView(arrangedSubviews: [registerLabel, registerButton], axis: .horizontal, spacing: 10)
@@ -128,13 +139,13 @@ private extension LoginViewController {
       make.top.equalToSuperview().inset(100)
       make.centerX.equalToSuperview()
     }
-    mailTextField.snp.makeConstraints { make in
+    emailTextField.snp.makeConstraints { make in
       make.top.equalTo(loginVCLabel.snp_bottomMargin).inset(-30)
       make.leading.trailing.equalToSuperview().inset(20)
       make.height.equalTo(60)
     }
     passwordTextField.snp.makeConstraints { make in
-      make.top.equalTo(mailTextField.snp_bottomMargin).inset(-30)
+      make.top.equalTo(emailTextField.snp_bottomMargin).inset(-30)
       make.leading.trailing.equalToSuperview().inset(20)
       make.height.equalTo(60)
     }
