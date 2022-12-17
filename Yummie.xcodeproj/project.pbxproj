@@ -21,6 +21,7 @@
 		815945E52947970100347399 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815945E42947970100347399 /* LoginViewController.swift */; };
 		815945E72947A3EF00347399 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815945E62947A3EF00347399 /* LoginViewModel.swift */; };
 		815945EA2947A72600347399 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815945E92947A72600347399 /* RegisterViewController.swift */; };
+		817E0FF3294E2C6D00EAA512 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 817E0FF2294E2C6D00EAA512 /* GoogleService-Info.plist */; };
 		81B0879B2909728600DBC398 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B0879A2909728600DBC398 /* AppDelegate.swift */; };
 		81B0879D2909728600DBC398 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B0879C2909728600DBC398 /* SceneDelegate.swift */; };
 		81B0879F2909728600DBC398 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B0879E2909728600DBC398 /* OnboardingViewController.swift */; };
@@ -66,6 +67,7 @@
 		815945E42947970100347399 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		815945E62947A3EF00347399 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		815945E92947A72600347399 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		817E0FF2294E2C6D00EAA512 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		81B087972909728600DBC398 /* Yummie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yummie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81B0879A2909728600DBC398 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81B0879C2909728600DBC398 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,13 @@
 			path = RegisterModule;
 			sourceTree = "<group>";
 		};
+		817E0FF1294E274D00EAA512 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		81B0878E2909728600DBC398 = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				81B087FA290A952900DBC398 /* App */,
+				817E0FF1294E274D00EAA512 /* Coordinator */,
 				8141815529141D5400CCE37B /* NetworkService */,
 				81B087AE290972C800DBC398 /* Onboarding */,
 				815945E32947964A00347399 /* LoginModule */,
@@ -191,6 +201,7 @@
 				81B087FD290AA93C00DBC398 /* Extensions */,
 				81B087DC290A8E4500DBC398 /* Fonts */,
 				81B087A82909728600DBC398 /* Info.plist */,
+				817E0FF2294E2C6D00EAA512 /* GoogleService-Info.plist */,
 			);
 			path = Yummie;
 			sourceTree = "<group>";
@@ -366,6 +377,7 @@
 				81B08803290AABC500DBC398 /* SF-Pro-Display-Ultralight.otf in Resources */,
 				81B08815290BF14A00DBC398 /* Assets.xcassets in Resources */,
 				81B08802290AABC500DBC398 /* SF-Pro-Display-Regular.otf in Resources */,
+				817E0FF3294E2C6D00EAA512 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
