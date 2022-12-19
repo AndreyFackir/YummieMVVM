@@ -11,7 +11,7 @@ import Combine
 
 final class OnboardingViewController: UIViewController {
   
-  private let viewModel = OnboardingViewModel()
+  var viewModel = OnboardingViewModel()
   private var subscriptions: Set<AnyCancellable> = []
   @Published var buttonTapped = 0
   
