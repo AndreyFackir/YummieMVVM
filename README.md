@@ -7,7 +7,7 @@ A food application built with Swift 5 and UIKit where the user can order a diffe
  <h3>📱About App</h3> 
  
  ---
- - **MVVM architecture**
+ - **MVVM + Coordinator architecture**
  - **Combine Framework** 
  - **Full programmatically UI (no storyboard)**
  - CollectionView Compositional Layout
