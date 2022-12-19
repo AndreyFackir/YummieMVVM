@@ -113,7 +113,7 @@ final class RegisterViewController: UIViewController {
       } else {
         let mainVC = HomeViewController()
         mainVC.modalPresentationStyle = .fullScreen
-        self?.present(mainVC, animated: true, completion: nil)
+        self?.show(mainVC, sender: self)
       }
       
     }
@@ -123,7 +123,7 @@ final class RegisterViewController: UIViewController {
     print("registerButtonTapped")
     let loginVC = LoginViewController()
     loginVC.modalPresentationStyle = .fullScreen
-    present(loginVC, animated: true, completion: nil)
+    show(loginVC, sender: self)
   }
   
   func bindings() {

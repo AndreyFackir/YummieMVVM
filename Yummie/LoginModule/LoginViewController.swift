@@ -93,15 +93,14 @@ final class LoginViewController: UIViewController {
   // MARK: - Methods
   @objc private func signInButtonTapped() {
     guard let email = emailTextField.text, let password = passwordTextField.text else { return }
-    Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+    Auth.auth().signIn(withEmail: email, password: password) { [weak self] _, error in
       if let error = error {
         print(error.localizedDescription)
       } else {
         let mainVC = HomeViewController()
         mainVC.modalPresentationStyle = .fullScreen
-        self?.present(mainVC, animated: true, completion: nil)
+        self?.show(mainVC, sender: self)
       }
-      
     }
   }
   

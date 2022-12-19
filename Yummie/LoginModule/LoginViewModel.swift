@@ -13,4 +13,9 @@ final class LoginViewModel {
   @Published var password = ""
   private var subscription: Set<AnyCancellable> = []
   
+  // MARK: - Methods
+  func signIn(with email: String, password: String) {
+    
+  }
+  
 }
