@@ -11,6 +11,7 @@ import Combine
 final class OnboardingViewModel {
   
   // MARK: - Properties
+  weak var coordinator: AppCoordinator?
   var onboardingModel: OnboardingModel?
   var buttonTappedCount = PassthroughSubject<Int, Never>()
   private var subscriptions: Set<AnyCancellable> = []
@@ -20,6 +21,10 @@ final class OnboardingViewModel {
   
   init() {
     nextButtonTapped()
+  }
+  
+  func loadOnboarding() {
+    coordinator?.goToOnboarding()
   }
   
   func configureScreens() -> [OnboardingModel] {

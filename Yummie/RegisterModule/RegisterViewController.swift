@@ -28,7 +28,7 @@ final class RegisterViewController: UIViewController {
     return element
   }()
   
-  private let fullnameTextField: UITextField = {
+  private let fullNameTextField: UITextField = {
     let element = UITextField()
     element.translatesAutoresizingMaskIntoConstraints = false
     element.clearButtonMode = .always
@@ -115,7 +115,6 @@ final class RegisterViewController: UIViewController {
         mainVC.modalPresentationStyle = .fullScreen
         self?.show(mainVC, sender: self)
       }
-      
     }
   }
   
@@ -144,7 +143,7 @@ private extension RegisterViewController {
     view.addSubview(emailTextField)
     view.addSubview(passwordTextField)
     view.addSubview(registerButton)
-    view.addSubview(fullnameTextField)
+    view.addSubview(fullNameTextField)
     stackView = UIStackView(arrangedSubviews: [haveAcountLabel, loginButton], axis: .horizontal, spacing: 10)
     view.addSubview(stackView)
   }
@@ -154,13 +153,13 @@ private extension RegisterViewController {
       make.top.equalToSuperview().inset(100)
       make.centerX.equalToSuperview()
     }
-    fullnameTextField.snp.makeConstraints { make in
+    fullNameTextField.snp.makeConstraints { make in
       make.top.equalTo(createAccountLabel.snp_bottomMargin).inset(-30)
       make.leading.trailing.equalToSuperview().inset(20)
       make.height.equalTo(60)
     }
     emailTextField.snp.makeConstraints { make in
-      make.top.equalTo(fullnameTextField.snp_bottomMargin).inset(-30)
+      make.top.equalTo(fullNameTextField.snp_bottomMargin).inset(-30)
       make.leading.trailing.equalToSuperview().inset(20)
       make.height.equalTo(60)
     }
