@@ -12,7 +12,7 @@ import Firebase
 
 final class LoginViewController: UIViewController {
   private var subscription: Set<AnyCancellable> = []
-  private let viewModel = LoginViewModel()
+  var viewModel = LoginViewModel()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -106,9 +106,10 @@ final class LoginViewController: UIViewController {
   
   @objc private func registerButtonTapped() {
     print("registerButtonTapped")
-    let registrVC = RegisterViewController()
-    registrVC.modalPresentationStyle = .fullScreen
-    present(registrVC, animated: true, completion: nil)
+//    let registrVC = RegisterViewController()
+//    registrVC.modalPresentationStyle = .fullScreen
+//    present(registrVC, animated: true, completion: nil)
+    viewModel.goToRegisterPage()
   }
   
   func bindings() {

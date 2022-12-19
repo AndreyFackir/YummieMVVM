@@ -17,16 +17,14 @@ final class OnboardingViewModel {
   private var subscriptions: Set<AnyCancellable> = []
   @Published var buttonTitle = "Next"
   
-  // MARK: - Actions
+  // MARK: - Init
   
   init() {
     nextButtonTapped()
   }
   
-  func loadOnboarding() {
-    coordinator?.goToOnboarding()
-  }
-  
+  // MARK: - Methods
+
   func configureScreens() -> [OnboardingModel] {
     var onboardingArray = [OnboardingModel]()
     guard let firstImage = UIImage(named: "slide1"),
@@ -49,6 +47,7 @@ final class OnboardingViewModel {
           self?.buttonTitle = "Let's go"
         }
         if value == 3 {
+          self?.coordinator?.gotoAuthorization()
           self?.saveUserDefaults()
         }
       }.store(in: &subscriptions)
