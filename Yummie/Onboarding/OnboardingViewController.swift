@@ -72,11 +72,6 @@ final class OnboardingViewController: UIViewController {
         let index: IndexPath = [0, value]
         self.onboardingCollection.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
         self.pageControl.currentPage = value
-        if value == 3 {
-          let mainVC = HomeViewController()
-          mainVC.modalPresentationStyle = .fullScreen
-          self.present(mainVC, animated: true, completion: nil)
-        }
       }.store(in: &subscriptions)
   }
   
