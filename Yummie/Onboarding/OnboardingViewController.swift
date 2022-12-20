@@ -22,6 +22,7 @@ final class OnboardingViewController: UIViewController {
     bindings()
   }
   
+  
   // MARK: - Properties
   private lazy var nextButton: UIButton = {
     let element = UIButton(type: .system)

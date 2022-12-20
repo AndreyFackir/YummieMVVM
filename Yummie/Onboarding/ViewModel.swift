@@ -48,6 +48,7 @@ final class OnboardingViewModel {
         }
         if value == 3 {
           self?.coordinator?.gotoAuthorization()
+        
           self?.saveUserDefaults()
         }
       }.store(in: &subscriptions)

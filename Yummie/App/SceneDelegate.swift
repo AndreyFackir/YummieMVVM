@@ -19,16 +19,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let navigationController = UINavigationController.init()
     appCoordinator = AppCoordinator(navigationController: navigationController)
     appCoordinator?.start()
-//
-//    var controller = UIViewController()
-//    if UserDefaults.standard.isOnbardingViewed {
-//      controller = LoginViewController()
-//    } else {
-//      controller = OnboardingViewController()
-//    }
-//    let navigationVC = UINavigationController(rootViewController: controller)
+    
     window?.rootViewController = navigationController
     window?.makeKeyAndVisible()
+    //
+    //    var controller = UIViewController()
+    //    if UserDefaults.standard.isOnbardingViewed {
+    //      controller = LoginViewController()
+    //    } else {
+    //      controller = OnboardingViewController()
+    //    }
+    //    let navigationVC = UINavigationController(rootViewController: controller)
     
   }
   

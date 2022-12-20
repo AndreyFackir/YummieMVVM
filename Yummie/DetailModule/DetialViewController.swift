@@ -48,7 +48,6 @@ final class DetialViewController: UIViewController {
   private let detailImage: UIImageView = {
     let element = UIImageView()
     element.translatesAutoresizingMaskIntoConstraints = false
-    element.image = UIImage(systemName: "sun.max")
     element.contentMode = .scaleAspectFill
     element.layer.masksToBounds = true
     return element
@@ -59,25 +58,20 @@ final class DetialViewController: UIViewController {
   private let dishLabel: UILabel = {
     let element = UILabel()
     element.translatesAutoresizingMaskIntoConstraints = false
-    element.text = "FAFAFAsgasgasgasgaFAFAFAF"
     element.numberOfLines = 0
-    
     return element
   }()
   
   private let dishCalories: UILabel = {
     let element = UILabel()
     element.translatesAutoresizingMaskIntoConstraints = false
-    element.text = "123 kCal"
     element.textColor = .red
-    //scaleFactor for label
     return element
   }()
   
   private let descriptionDishesLabel: UILabel = {
     let element = UILabel()
     element.translatesAutoresizingMaskIntoConstraints = false
-    element.text = "fafafafafafaf"
     element.numberOfLines = 0
     element.textColor = .systemGray
     return element
