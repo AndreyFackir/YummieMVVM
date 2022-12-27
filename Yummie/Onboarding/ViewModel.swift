@@ -47,9 +47,11 @@ final class OnboardingViewModel {
           self?.buttonTitle = "Let's go"
         }
         if value == 3 {
+          
           self?.coordinator?.gotoAuthorization()
         
           self?.saveUserDefaults()
+          
         }
       }.store(in: &subscriptions)
   }

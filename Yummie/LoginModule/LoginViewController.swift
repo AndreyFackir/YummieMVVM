@@ -97,9 +97,10 @@ final class LoginViewController: UIViewController {
       if let error = error {
         print(error.localizedDescription)
       } else {
-        let mainVC = HomeViewController()
-        mainVC.modalPresentationStyle = .fullScreen
-        self?.show(mainVC, sender: self)
+        self?.viewModel.goToMainScreen()
+//        let mainVC = HomeViewController()
+//        mainVC.modalPresentationStyle = .fullScreen
+//        self?.show(mainVC, sender: self)
       }
     }
   }

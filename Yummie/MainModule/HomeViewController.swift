@@ -17,7 +17,7 @@ final class HomeViewController: UIViewController {
   }
   
   private var subscriptions: Set<AnyCancellable> = []
-  private let mainViewModel = MainViewModel()
+  var mainViewModel = MainViewModel()
   
   // MARK: - View Life Cycle
   override func viewDidLoad() {

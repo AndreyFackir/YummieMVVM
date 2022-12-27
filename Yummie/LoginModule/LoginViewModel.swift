@@ -10,6 +10,7 @@ import Combine
 
 protocol LoginNavigationProtocol: AnyObject {
   func goToRegisterPage()
+  func goToMainScreen()
 }
 
 final class LoginViewModel {
@@ -25,5 +26,9 @@ final class LoginViewModel {
   
   func goToRegisterPage() {
     navigation?.goToRegisterPage()
+  }
+  
+  func goToMainScreen() {
+    navigation?.goToMainScreen()
   }
 }
