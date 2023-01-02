@@ -10,6 +10,7 @@ A food application built with Swift 5 and UIKit where the user can order a diffe
  - **MVVM + Coordinator architecture**
  - **Combine Framework** 
  - **Full programmatically UI (no storyboard)**
+ - Firebase Authentication
  - CollectionView Compositional Layout
  - **UserDefaults** for Onboarding and Settings
  - See detailed info about dishes
