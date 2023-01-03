@@ -8,13 +8,9 @@
 import Foundation
 import Combine
 
-protocol LoginNavigationProtocol: AnyObject {
-  func goToRegisterPage()
-  func goToMainScreen()
-}
 
 final class LoginViewModel {
-  weak var navigation: LoginNavigationProtocol?
+  weak var coordinator: AuthCoordinator?
   @Published var email = ""
   @Published var password = ""
   private var subscription: Set<AnyCancellable> = []
@@ -25,10 +21,10 @@ final class LoginViewModel {
   }
   
   func goToRegisterPage() {
-    navigation?.goToRegisterPage()
+    coordinator?.goToRegister()
   }
   
   func goToMainScreen() {
-    navigation?.goToMainScreen()
+   // coordinator?.showLogin()
   }
 }

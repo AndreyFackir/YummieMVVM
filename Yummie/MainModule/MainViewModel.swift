@@ -10,7 +10,6 @@ import Combine
 import ProgressHUD
 
 final class MainViewModel {
-  weak var navigation: LoginNavigationProtocol?
   @Published var dishes: AllDishes?
   private var subscriptions: Set<AnyCancellable> = []
   
