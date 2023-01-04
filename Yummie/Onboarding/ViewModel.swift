@@ -11,7 +11,7 @@ import Combine
 final class OnboardingViewModel {
   
   // MARK: - Properties
-  weak var coordinator: OnboardingCoordinator?
+  weak var coordinator: AppCoordinator?
   var onboardingModel: OnboardingModel?
   var buttonTappedCount = PassthroughSubject<Int, Never>()
   private var subscriptions: Set<AnyCancellable> = []
@@ -24,7 +24,7 @@ final class OnboardingViewModel {
   }
   
   // MARK: - Methods
-
+  
   func configureScreens() -> [OnboardingModel] {
     var onboardingArray = [OnboardingModel]()
     guard let firstImage = UIImage(named: "slide1"),
@@ -47,10 +47,8 @@ final class OnboardingViewModel {
           self?.buttonTitle = "Let's go"
         }
         if value == 3 {
-          
-          self?.coordinator?.goToAuth()
+          self?.coordinator?.goToLogin()
           self?.saveUserDefaults()
-          
         }
       }.store(in: &subscriptions)
   }

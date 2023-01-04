@@ -8,9 +8,8 @@
 import Foundation
 import Combine
 
-
 final class LoginViewModel {
-  weak var coordinator: AuthCoordinator?
+  weak var coordinator: AppCoordinator?
   @Published var email = ""
   @Published var password = ""
   private var subscription: Set<AnyCancellable> = []
@@ -25,6 +24,6 @@ final class LoginViewModel {
   }
   
   func goToMainScreen() {
-   // coordinator?.showLogin()
+    coordinator?.goToMainScreen()
   }
 }
