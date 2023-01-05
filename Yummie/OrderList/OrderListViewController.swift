@@ -10,7 +10,7 @@ import Combine
 import SnapKit
 
 final class OrderListViewController: UIViewController {
-  let ordersViewModel = OrdersViewModel()
+  var ordersViewModel = OrdersViewModel()
   private var subscriptions: Set<AnyCancellable> = []
   
   override func viewDidLoad() {
@@ -55,6 +55,7 @@ private extension OrderListViewController {
   }
   
   func setupViews() {
+    title = "MY ORDERS"
     view.addSubview(orderListCollection)
     orderListCollection.dataSource = self
     orderListCollection.register(OrderCollectionViewCell.self, forCellWithReuseIdentifier: "orderList")
