@@ -10,6 +10,7 @@ import Combine
 import ProgressHUD
 
 final class OrdersViewModel {
+  weak var coordinator: MainScreenCoordinator?
   @Published var orders: Orders?
   private var subscriptions: Set<AnyCancellable> = []
   
@@ -38,4 +39,6 @@ final class OrdersViewModel {
       }
       .store(in: &subscriptions)
   }
+  
+  
 }

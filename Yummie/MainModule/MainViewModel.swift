@@ -10,7 +10,7 @@ import Combine
 import ProgressHUD
 
 final class MainViewModel {
-  weak var coordinator: AppCoordinator?
+  weak var coordinator: MainScreenCoordinator?
   @Published var dishes: AllDishes?
   private var subscriptions: Set<AnyCancellable> = []
   
@@ -38,5 +38,13 @@ final class MainViewModel {
         self?.dishes = allDishes
       }
       .store(in: &subscriptions)
+  }
+  
+  func goToOrdersList() {
+    coordinator?.goToOrdersList()
+  }
+  
+  func goToProfile() {
+    coordinator?.goToProfile()
   }
 }

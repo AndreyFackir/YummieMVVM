@@ -11,7 +11,7 @@ import Combine
 final class OnboardingViewModel {
   
   // MARK: - Properties
-  weak var coordinator: AppCoordinator?
+  weak var coordinator: OnboardingCoordinator?
   var onboardingModel: OnboardingModel?
   var buttonTappedCount = PassthroughSubject<Int, Never>()
   private var subscriptions: Set<AnyCancellable> = []
@@ -47,7 +47,7 @@ final class OnboardingViewModel {
           self?.buttonTitle = "Let's go"
         }
         if value == 3 {
-          self?.coordinator?.goToLogin()
+          self?.coordinator?.goToAuth()
           self?.saveUserDefaults()
         }
       }.store(in: &subscriptions)

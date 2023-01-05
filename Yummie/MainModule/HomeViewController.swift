@@ -77,9 +77,13 @@ final class HomeViewController: UIViewController {
   // MARK: - Actions
   
   @objc private func cartButtonTapped() {
-    let orderVC = OrderListViewController()
-    navigationController?.pushViewController(orderVC, animated: true)
+    mainViewModel.goToOrdersList()
   }
+  
+  @objc private func profileImageTapped() {
+    mainViewModel.goToProfile()
+  }
+  
   
   private func bindings() {
     mainViewModel.$dishes
@@ -124,6 +128,10 @@ private extension HomeViewController {
     let cartImage = UIBarButtonItem(image: UIImage(systemName: "cart.circle.fill"), style: .plain, target: self, action: #selector(cartButtonTapped))
     navigationController?.topViewController?.navigationItem.rightBarButtonItem = cartImage
     cartImage.tintColor = .red
+    
+    let profileImage = UIBarButtonItem(image: UIImage(systemName: "person.circle.fill"), style: .plain, target: self, action: #selector(profileImageTapped))
+    navigationController?.topViewController?.navigationItem.leftBarButtonItem = profileImage
+    profileImage.tintColor = .red
   }
 }
 

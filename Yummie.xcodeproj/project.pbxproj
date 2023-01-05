@@ -21,6 +21,7 @@
 		8152286C2964385900745955 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152286B2964385900745955 /* AppCoordinator.swift */; };
 		8152287229645D1400745955 /* MainScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152287129645D1400745955 /* MainScreenCoordinator.swift */; };
 		815228752965667400745955 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815228742965667400745955 /* ProfileViewController.swift */; };
+		815228772965786E00745955 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815228762965786E00745955 /* ProfileViewModel.swift */; };
 		815945E2294499DD00347399 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815945E1294499DD00347399 /* UIImageView.swift */; };
 		815945E52947970100347399 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815945E42947970100347399 /* LoginViewController.swift */; };
 		815945E72947A3EF00347399 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815945E62947A3EF00347399 /* LoginViewModel.swift */; };
@@ -47,6 +48,8 @@
 		81B0881E29103AD000DBC398 /* ChiefSpecialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B0881D29103AD000DBC398 /* ChiefSpecialCell.swift */; };
 		81B088242910525B00DBC398 /* DetialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B088232910525B00DBC398 /* DetialViewController.swift */; };
 		81B088262910531700DBC398 /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B088252910531700DBC398 /* StackView.swift */; };
+		81BD20402966E49E0083A40A /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BD203F2966E49E0083A40A /* AuthCoordinator.swift */; };
+		81BD20422966EBCE0083A40A /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BD20412966EBCE0083A40A /* OnboardingCoordinator.swift */; };
 		81D8940829240D5A000AD438 /* DishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D8940729240D5A000AD438 /* DishListViewController.swift */; };
 		81D8940A29240DDA000AD438 /* DishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D8940929240DDA000AD438 /* DishViewModel.swift */; };
 		81D8940C292575D5000AD438 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D8940B292575D5000AD438 /* Model.swift */; };
@@ -72,6 +75,7 @@
 		8152286B2964385900745955 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		8152287129645D1400745955 /* MainScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCoordinator.swift; sourceTree = "<group>"; };
 		815228742965667400745955 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		815228762965786E00745955 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		815945E1294499DD00347399 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		815945E42947970100347399 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		815945E62947A3EF00347399 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 		81B0881D29103AD000DBC398 /* ChiefSpecialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChiefSpecialCell.swift; sourceTree = "<group>"; };
 		81B088232910525B00DBC398 /* DetialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetialViewController.swift; sourceTree = "<group>"; };
 		81B088252910531700DBC398 /* StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
+		81BD203F2966E49E0083A40A /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		81BD20412966EBCE0083A40A /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		81D8940729240D5A000AD438 /* DishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishListViewController.swift; sourceTree = "<group>"; };
 		81D8940929240DDA000AD438 /* DishViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishViewModel.swift; sourceTree = "<group>"; };
 		81D8940B292575D5000AD438 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -157,6 +163,8 @@
 			children = (
 				81522869296437C300745955 /* Coordinator.swift */,
 				8152286B2964385900745955 /* AppCoordinator.swift */,
+				81BD20412966EBCE0083A40A /* OnboardingCoordinator.swift */,
+				81BD203F2966E49E0083A40A /* AuthCoordinator.swift */,
 				8152287129645D1400745955 /* MainScreenCoordinator.swift */,
 			);
 			path = Coordinators;
@@ -166,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				815228742965667400745955 /* ProfileViewController.swift */,
+				815228762965786E00745955 /* ProfileViewModel.swift */,
 			);
 			path = ProfileModule;
 			sourceTree = "<group>";
@@ -457,6 +466,7 @@
 				81D894132926A824000AD438 /* OrderCollectionViewCell.swift in Sources */,
 				81418165291567AC00CCE37B /* UIColor.swift in Sources */,
 				81B088262910531700DBC398 /* StackView.swift in Sources */,
+				81BD20402966E49E0083A40A /* AuthCoordinator.swift in Sources */,
 				81A0594D2950ED29000832A8 /* RegisterViewModel.swift in Sources */,
 				81D894172926CF77000AD438 /* UserDefaults.swift in Sources */,
 				81D8940A29240DDA000AD438 /* DishViewModel.swift in Sources */,
@@ -476,6 +486,8 @@
 				8141816D29190B0F00CCE37B /* UITextField.swift in Sources */,
 				8141817029192BED00CCE37B /* OrderModel.swift in Sources */,
 				815228752965667400745955 /* ProfileViewController.swift in Sources */,
+				81BD20422966EBCE0083A40A /* OnboardingCoordinator.swift in Sources */,
+				815228772965786E00745955 /* ProfileViewModel.swift in Sources */,
 				814181692916ACED00CCE37B /* DetailViewModel.swift in Sources */,
 				81B0881A290C09D700DBC398 /* HomeFoodCategoryCell.swift in Sources */,
 				81B087B82909BF1100DBC398 /* OnboardingCell.swift in Sources */,
