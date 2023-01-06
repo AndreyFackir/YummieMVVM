@@ -26,6 +26,7 @@ final class OnboardingCoordinator: Coordinator {
   func start() {
     showOnboarding()
     print("OnboardingCoordinator start")
+    print("OnboardingCoordinator - \(parentCoordinator)")
   }
   
   deinit {

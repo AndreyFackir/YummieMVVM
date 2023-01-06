@@ -9,13 +9,12 @@ import UIKit
 
 final class AuthCoordinator: Coordinator {
   
-  weak var coordinator: AppCoordinator?
+  // MARK: - Properties
   var parentCoordinator: Coordinator?
   var navigationController: UINavigationController
   var children: [Coordinator] = []
   
   // MARK: - Init
-  
   init(navigationController: UINavigationController) {
     self.navigationController = navigationController
   }
@@ -24,18 +23,19 @@ final class AuthCoordinator: Coordinator {
   func start() {
     goToLogin()
     print("AuthCoordinator start")
-  }
+    print("AuthCoordinator - \(parentCoordinator)")
 
+  }
+  
   deinit {
     print("AuthCoordinator deinit")
   }
- 
+  
   func goToLogin() {
     let authVC = LoginViewController()
     let viewModel = LoginViewModel()
     authVC.viewModel = viewModel
     viewModel.coordinator = self
-//    children.append(self)
     navigationController.viewControllers.removeAll()
     navigationController.pushViewController(authVC, animated: true)
   }
@@ -49,7 +49,7 @@ final class AuthCoordinator: Coordinator {
   }
   
   func goToMain() {
-    let appC = AppCoordinator(navigationController: navigationController)
+    let appC = parentCoordinator as! AppCoordinator
     appC.goToMain()
     parentCoordinator?.childDidFinish(self)
   }

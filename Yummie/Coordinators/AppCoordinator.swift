@@ -10,14 +10,12 @@ import Combine
 
 final class AppCoordinator: Coordinator {
   
-  let hasSeenOnboarding = CurrentValueSubject<Bool, Never>(false)
-  var subscriptions: Set<AnyCancellable> = []
-  
   // MARK: - Properties
   var navigationController: UINavigationController
   var children: [Coordinator] = []
   var parentCoordinator: Coordinator?
-  
+  let hasSeenOnboarding = CurrentValueSubject<Bool, Never>(false)
+  var subscriptions: Set<AnyCancellable> = []
   
   // MARK: - Init
   init(navigationController: UINavigationController) {
@@ -55,7 +53,6 @@ final class AppCoordinator: Coordinator {
   
   func goToAuth() {
     let auth = AuthCoordinator(navigationController: navigationController)
-    children.removeAll()
     auth.parentCoordinator = self
     children.append(auth)
     auth.start()
@@ -64,11 +61,10 @@ final class AppCoordinator: Coordinator {
   func goToMain() {
     let mainCoord = MainScreenCoordinator(navigationController: navigationController)
     mainCoord.parentCoordinator = self
-    children.removeAll()
     children.append(mainCoord)
     mainCoord.start()
   }
-  
+
   
   private func setupOnboardingValue() {
     let key = "hasSeenOnboarding"

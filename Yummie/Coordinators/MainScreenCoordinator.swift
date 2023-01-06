@@ -9,7 +9,7 @@ import UIKit
 
 final class MainScreenCoordinator: Coordinator {
   
-  
+  // MARK: - Properties
   var parentCoordinator: Coordinator?
   var children: [Coordinator] = []
   var navigationController: UINavigationController
@@ -20,10 +20,11 @@ final class MainScreenCoordinator: Coordinator {
   }
   
   // MARK: - Methods
-  
   func start() {
     showMainScreen()
     print("MainScreenCoordinator start")
+    print("MainScreenCoordinator - \(parentCoordinator)")
+
   }
   
   deinit {
@@ -35,7 +36,6 @@ final class MainScreenCoordinator: Coordinator {
     let viewModel = MainViewModel()
     homeVC.mainViewModel = viewModel
     viewModel.coordinator = self
-    parentCoordinator = self
     navigationController.pushViewController(homeVC, animated: true)
   }
   
@@ -52,5 +52,11 @@ final class MainScreenCoordinator: Coordinator {
     profile.viewModel = viewModel
     viewModel.coordinator = self
     navigationController.pushViewController(profile, animated: true)
+  }
+  
+  func goToAuth() {
+    let appC = parentCoordinator as! AppCoordinator
+    appC.goToAuth()
+    parentCoordinator?.childDidFinish(self)
   }
 }
