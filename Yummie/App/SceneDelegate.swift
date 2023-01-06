@@ -9,7 +9,7 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   
- var window: UIWindow?
+  var window: UIWindow?
   var appCoordinator: AppCoordinator?
   
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -21,15 +21,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     appCoordinator?.start()
     window?.rootViewController = navigationController
     window?.makeKeyAndVisible()
-    //
-    //    var controller = UIViewController()
-    //    if UserDefaults.standard.isOnbardingViewed {
-    //      controller = LoginViewController()
-    //    } else {
-    //      controller = OnboardingViewController()
-    //    }
-    //    let navigationVC = UINavigationController(rootViewController: controller)
-    
   }
   
 }

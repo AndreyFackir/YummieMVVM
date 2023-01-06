@@ -7,17 +7,17 @@
 
 import Foundation
 
-extension UserDefaults {
-  private enum UserDefaultsKeys: String {
-    case isOnboardingViewed
-  }
-  
-  var isOnbardingViewed: Bool {
-    get {
-      bool(forKey: UserDefaultsKeys.isOnboardingViewed.rawValue)
-    }
-    set {
-      set(newValue, forKey: UserDefaultsKeys.isOnboardingViewed.rawValue)
-    }
-  }
-}
+//extension UserDefaults {
+//  private enum UserDefaultsKeys: String {
+//    case isOnboardingViewed
+//  }
+//
+//  var isOnbardingViewed: Bool {
+//    get {
+//      bool(forKey: UserDefaultsKeys.isOnboardingViewed.rawValue)
+//    }
+//    set {
+//      set(newValue, forKey: UserDefaultsKeys.isOnboardingViewed.rawValue)
+//    }
+//  }
+//}
