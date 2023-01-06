@@ -41,10 +41,10 @@ final class MainViewModel {
   }
   
   func goToOrdersList() {
-    coordinator?.goToOrdersList()
+   // coordinator?.goToOrdersList()
   }
   
   func goToProfile() {
-    coordinator?.goToProfile()
+   // coordinator?.goToProfile()
   }
 }

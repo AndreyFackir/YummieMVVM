@@ -47,14 +47,15 @@ final class OnboardingViewModel {
           self?.buttonTitle = "Let's go"
         }
         if value == 3 {
+         
           self?.coordinator?.goToAuth()
-          self?.saveUserDefaults()
+//          self?.coordinator?.hasSeenOnboarding.send(true)
         }
       }.store(in: &subscriptions)
   }
   
   private func saveUserDefaults() {
-    UserDefaults.standard.isOnbardingViewed = true
+   // UserDefaults.standard.isOnbardingViewed = true
   }
 }
 
