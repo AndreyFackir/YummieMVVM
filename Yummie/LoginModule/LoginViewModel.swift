@@ -20,11 +20,11 @@ final class LoginViewModel {
   }
   
   func goToRegisterPage() {
-    //coordinator?.goToRegister()
+    coordinator?.goToRegister()
   }
   
   func goToMainScreen() {
-   // coordinator?.goToMain()
+    coordinator?.goToMain()
    
   }
 }
