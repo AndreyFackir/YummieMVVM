@@ -14,7 +14,6 @@ final class LoginViewController: UIViewController {
   private var subscription: Set<AnyCancellable> = []
   var viewModel = LoginViewModel()
   
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
@@ -30,6 +29,7 @@ final class LoginViewController: UIViewController {
     element.font = .sanFranciscoMedium40
     return element
   }()
+  
   private let emailTextField: UITextField = {
     let element = UITextField()
     element.translatesAutoresizingMaskIntoConstraints = false
@@ -99,18 +99,12 @@ final class LoginViewController: UIViewController {
         print(error.localizedDescription)
       } else {
         self?.viewModel.goToMainScreen()
-//        let mainVC = HomeViewController()
-//        mainVC.modalPresentationStyle = .fullScreen
-//        self?.show(mainVC, sender: self)
       }
     }
   }
   
   @objc private func registerButtonTapped() {
     print("registerButtonTapped")
-//    let registrVC = RegisterViewController()
-//    registrVC.modalPresentationStyle = .fullScreen
-//    present(registrVC, animated: true, completion: nil)
     viewModel.goToRegisterPage()
   }
   

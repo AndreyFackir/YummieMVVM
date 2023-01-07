@@ -47,7 +47,7 @@ final class DishListCell: UICollectionViewCell {
     return element
   }()
   
-  // MARK: - Actions
+  // MARK: - Methods
   
   func configureCell(model: Datum) {
     dishTitle.text = model.name
@@ -67,7 +67,6 @@ final class DishListCell: UICollectionViewCell {
 // MARK: - Setup
 
 private extension DishListCell {
-  
   func setup() {
     setupViews()
     setConstraints()

@@ -17,7 +17,6 @@ final class DishListViewController: UIViewController {
     super.viewDidLoad()
     setup()
     binding()
-    
   }
   
   init(dishViewModel: DishViewModel) {
@@ -28,7 +27,6 @@ final class DishListViewController: UIViewController {
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
   
   // MARK: - Properties
   private let dishListCollection: UICollectionView = {
@@ -47,7 +45,7 @@ final class DishListViewController: UIViewController {
     return collection
   }()
   
-  // MARK: - Actions
+  // MARK: - Methods
   
   private func binding() {
     dishViewModel.$dish
@@ -60,7 +58,6 @@ final class DishListViewController: UIViewController {
 // MARK: - Setup
 
 private extension DishListViewController {
-  
   func setup() {
     setupViews()
     setConstraints()

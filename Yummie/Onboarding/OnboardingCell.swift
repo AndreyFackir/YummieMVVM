@@ -50,16 +50,15 @@ final class OnboardingCell: UICollectionViewCell {
     return element
   }()
   
-  // MARK: - Actions
-  
+  // MARK: - Methods
   func configure(model: OnboardingModel) {
     topLabel.text = model.topInfoLabel
     bottomLabel.text = model.description
     image.image = model.image
   }
 }
-// MARK: - Setup
 
+// MARK: - Setup
 private extension OnboardingCell {
   func setup() {
     setupViews()

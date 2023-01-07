@@ -18,13 +18,11 @@ final class OnboardingViewModel {
   @Published var buttonTitle = "Next"
   
   // MARK: - Init
-  
   init() {
     nextButtonTapped()
   }
   
   // MARK: - Methods
-  
   func configureScreens() -> [OnboardingModel] {
     var onboardingArray = [OnboardingModel]()
     guard let firstImage = UIImage(named: "slide1"),
@@ -49,9 +47,9 @@ final class OnboardingViewModel {
         if value == 3 {
           self?.coordinator?.hasSeenOnboarding.send(true)
           self?.coordinator?.goToAuth()
-          
         }
-      }.store(in: &subscriptions)
+      }
+      .store(in: &subscriptions)
   }
 }
 

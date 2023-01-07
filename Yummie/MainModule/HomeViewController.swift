@@ -8,14 +8,13 @@
 import UIKit
 import Combine
 
+enum Section: String, CaseIterable {
+  case foodCategory = "Food Category"
+  case popularDishes = "Popular Dishes"
+  case chiefSpecials = "Chief's Specials"
+}
+
 final class HomeViewController: UIViewController {
-  
-  enum Section: String, CaseIterable {
-    case foodCategory = "Food Category"
-    case popularDishes = "Popular Dishes"
-    case chiefSpecials = "Chief's Specials"
-  }
-  
   private var subscriptions: Set<AnyCancellable> = []
   var mainViewModel = MainViewModel()
   
@@ -74,7 +73,7 @@ final class HomeViewController: UIViewController {
     return collection
   }()
   
-  // MARK: - Actions
+  // MARK: - Methods
   
   @objc private func cartButtonTapped() {
     mainViewModel.goToOrdersList()
@@ -83,7 +82,6 @@ final class HomeViewController: UIViewController {
   @objc private func profileImageTapped() {
     mainViewModel.goToProfile()
   }
-  
   
   private func bindings() {
     mainViewModel.$dishes
@@ -101,6 +99,7 @@ private extension HomeViewController {
     setupNavigationBar()
     setHomeCollection()
   }
+  
   func setupViews() {
     title = "YUMMIE"
     view.backgroundColor = .specialBackground
@@ -190,21 +189,15 @@ extension HomeViewController: UICollectionViewDelegate {
     switch Section.allCases[indexPath.section] {
       case .foodCategory:
         guard let dishCategory = mainViewModel.dishes?.data.categories[indexPath.item] else { return }
-        let dishViewModel = DishViewModel(dishCategory: dishCategory)
-        let dishList = DishListViewController(dishViewModel: dishViewModel)
-        navigationController?.pushViewController(dishList, animated: true)
+        mainViewModel.goToDishList(dishCategory: dishCategory)
         
       case .popularDishes:
         guard let dish = mainViewModel.dishes?.data.populars[indexPath.item] else { return }
-        let detailVM = DetailViewModel(dish: dish)
-        let detailVC = DetialViewController(detailViewModel: detailVM)
-        navigationController?.pushViewController(detailVC, animated: true)
+        mainViewModel.goToDetail(with: dish)
         
       case .chiefSpecials:
         guard let chiefSpecial = mainViewModel.dishes?.data.specials[indexPath.item] else { return }
-        let detailVM = DetailViewModel(dish: chiefSpecial)
-        let detailVC = DetialViewController(detailViewModel: detailVM)
-        navigationController?.pushViewController(detailVC, animated: true)
+        mainViewModel.goToDetail(with: chiefSpecial)
     }
   }
 }

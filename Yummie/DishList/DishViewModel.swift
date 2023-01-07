@@ -13,7 +13,8 @@ final class DishViewModel {
   var dishCategory: DishCategory?
   @Published var dish: CategoryDishes?
   private var subscriptions: Set<AnyCancellable> = []
-  
+  weak var coordinator: MainScreenCoordinator?
+
   // MARK: - Init
   
   init(dishCategory: DishCategory) {

@@ -44,7 +44,7 @@ final class HomeFoodCategoryCell: UICollectionViewCell {
     return element
   }()
   
-  // MARK: - Actions
+  // MARK: - Methods
   func configureCell(with model: DishCategory , indexPath: Int) {
     foodCategoryTitle.text = model.title
     let imageUrl = model.image
@@ -80,6 +80,7 @@ private extension HomeFoodCategoryCell {
       make.width.height.equalToSuperview().multipliedBy(0.7)
       make.centerX.equalToSuperview()
     }
+    
     foodCategoryTitle.snp.makeConstraints { make in
       make.bottom.equalToSuperview().inset(5)
       make.centerX.equalToSuperview()

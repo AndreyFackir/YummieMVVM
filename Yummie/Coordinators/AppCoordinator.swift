@@ -65,7 +65,6 @@ final class AppCoordinator: Coordinator {
     mainCoord.start()
   }
 
-  
   private func setupOnboardingValue() {
     let key = "hasSeenOnboarding"
     let value = UserDefaults.standard.bool(forKey: key)

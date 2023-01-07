@@ -10,7 +10,6 @@ import UIKit
 final class TitleSupplementaryView: UICollectionReusableView {
   
   // MARK: - View Life Cycle
-  
   override init(frame: CGRect) {
     super.init(frame: frame)
     setup()

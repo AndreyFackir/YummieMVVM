@@ -102,7 +102,7 @@ final class DetialViewController: UIViewController {
     return element
   }()
   
-  // MARK: - Actions
+  // MARK: - Methods
   
   @objc private func addToChartButtonTapped() {
     guard let name = nameTextField.text?.trimmingCharacters(in: .whitespaces), !name.isEmpty else {
@@ -151,7 +151,6 @@ final class DetialViewController: UIViewController {
 // MARK: - Setup
 
 private extension DetialViewController {
-  
   func setup() {
     registerForKeyboardNotificaion()
     setupViews()

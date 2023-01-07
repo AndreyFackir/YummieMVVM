@@ -24,7 +24,6 @@ final class AuthCoordinator: Coordinator {
     goToLogin()
     print("AuthCoordinator start")
     print("AuthCoordinator - \(parentCoordinator)")
-
   }
   
   deinit {

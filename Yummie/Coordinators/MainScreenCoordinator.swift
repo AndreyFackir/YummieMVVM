@@ -24,7 +24,6 @@ final class MainScreenCoordinator: Coordinator {
     showMainScreen()
     print("MainScreenCoordinator start")
     print("MainScreenCoordinator - \(parentCoordinator)")
-
   }
   
   deinit {
@@ -52,6 +51,20 @@ final class MainScreenCoordinator: Coordinator {
     profile.viewModel = viewModel
     viewModel.coordinator = self
     navigationController.pushViewController(profile, animated: true)
+  }
+  
+  func goToDishList(dishCategory: DishCategory) {
+    let viewModel = DishViewModel(dishCategory: dishCategory)
+    let dishListVC = DishListViewController(dishViewModel: viewModel)
+    viewModel.coordinator = self
+    navigationController.pushViewController(dishListVC, animated: true)
+  }
+  
+  func goToDetail(dish: Dish) {
+    let viewModel = DetailViewModel(dish: dish)
+    let detailVC = DetialViewController(detailViewModel: viewModel)
+    viewModel.coordinator = self
+    navigationController.pushViewController(detailVC, animated: true)
   }
   
   func goToAuth() {

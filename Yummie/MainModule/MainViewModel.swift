@@ -20,7 +20,7 @@ final class MainViewModel {
     fetchDishes()
   }
   
-  // MARK: - Actions
+  // MARK: - Methods
   
   private func fetchDishes() {
     ProgressHUD.show()
@@ -46,5 +46,13 @@ final class MainViewModel {
   
   func goToProfile() {
     coordinator?.goToProfile()
+  }
+  
+  func goToDishList(dishCategory: DishCategory) {
+    coordinator?.goToDishList(dishCategory: dishCategory)
+  }
+  
+  func goToDetail(with dish: Dish) {
+    coordinator?.goToDetail(dish: dish)
   }
 }

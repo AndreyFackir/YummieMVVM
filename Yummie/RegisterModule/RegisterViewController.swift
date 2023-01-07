@@ -112,18 +112,12 @@ final class RegisterViewController: UIViewController {
       if let error = error {
         print(error.localizedDescription)
       } else {
-        let mainVC = HomeViewController()
-        mainVC.modalPresentationStyle = .fullScreen
-        self?.show(mainVC, sender: self)
+        self?.viewModel.goToMain()
       }
     }
   }
   
   @objc private func loginButtonTapped() {
-//    print("registerButtonTapped")
-//    let loginVC = LoginViewController()
-//    loginVC.modalPresentationStyle = .fullScreen
-//    show(loginVC, sender: self)
     viewModel.goToLogin()
   }
   

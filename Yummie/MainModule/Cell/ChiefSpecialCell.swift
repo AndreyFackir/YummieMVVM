@@ -62,7 +62,7 @@ final class ChiefSpecialCell: UICollectionViewCell {
     return element
   }()
   
-  // MARK: - Actions
+  // MARK: - Methods
   func configureCell(with model: Dish , indexPath: Int) {
     chiefSpecialTitle.text = model.name
     caloriesTitle.text = "\(model.calories) kCal"
@@ -81,7 +81,6 @@ final class ChiefSpecialCell: UICollectionViewCell {
 
 // MARK: - Setup
 private extension ChiefSpecialCell {
-  
   func setup() {
     setupViews()
     setConstraints()

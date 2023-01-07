@@ -73,7 +73,8 @@ final class OnboardingViewController: UIViewController {
         let index: IndexPath = [0, value]
         self.onboardingCollection.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
         self.pageControl.currentPage = value
-      }.store(in: &subscriptions)
+      }
+      .store(in: &subscriptions)
   }
   
   private func bindings() {

@@ -17,6 +17,7 @@ final class DetailViewModel {
   @Published var dishOrders: DishOrders?
   private var subscriptions: Set<AnyCancellable> = []
   let nameText = PassthroughSubject<String, Never>()
+  weak var coordinator: MainScreenCoordinator?
   
   // MARK: - Init
   init(){}

@@ -62,7 +62,7 @@ final class PopularDishesCell: UICollectionViewCell {
     return element
   }()
   
-  // MARK: - Actions
+  // MARK: - Methods
   func configureCell(with model: Dish , indexPath: Int) {
     dishNameTitle.text = model.name
     caloriesTitle.text = "\(model.calories) kCal"

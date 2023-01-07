@@ -32,8 +32,7 @@ final class NetworkService {
   static let shared = NetworkService()
   private var subscriptions: Set<AnyCancellable> = []
   
-  // MARK: - Actions
-  
+  // MARK: - Methods
   func fetch<T:Decodable>(target: NetworkTarget, type: T.Type) -> AnyPublisher<T, Error> {
     return Future { [ weak self ] promise in
       guard let self = self else { return }
@@ -44,7 +43,7 @@ final class NetworkService {
         .map { $0.data }
         .decode(type: type, decoder: JSONDecoder())
         .sink { _ in
-          
+
         } receiveValue: { T in
           promise(.success(T))
         }
