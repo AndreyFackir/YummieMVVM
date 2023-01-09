@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 final class AuthCoordinator: Coordinator {
   
@@ -13,10 +14,13 @@ final class AuthCoordinator: Coordinator {
   var parentCoordinator: Coordinator?
   var navigationController: UINavigationController
   var children: [Coordinator] = []
+  var hasAuthorized: CurrentValueSubject<Bool, Never>
+
   
   // MARK: - Init
-  init(navigationController: UINavigationController) {
+  init(navigationController: UINavigationController, hasAuthorized: CurrentValueSubject<Bool, Never>) {
     self.navigationController = navigationController
+    self.hasAuthorized = hasAuthorized
   }
   
   // MARK: - Methods

@@ -24,6 +24,7 @@ final class LoginViewModel {
   }
   
   func goToMainScreen() {
+    coordinator?.hasAuthorized.send(true)
     coordinator?.goToMain()
    
   }

@@ -15,6 +15,7 @@ final class AppCoordinator: Coordinator {
   var children: [Coordinator] = []
   var parentCoordinator: Coordinator?
   let hasSeenOnboarding = CurrentValueSubject<Bool, Never>(false)
+  let hasAuthorized = CurrentValueSubject<Bool, Never>(false)
   var subscriptions: Set<AnyCancellable> = []
   
   // MARK: - Init
@@ -25,11 +26,16 @@ final class AppCoordinator: Coordinator {
   // MARK: - Methods
   func start() {
     setupOnboardingValue()
+    setupAuthorizationValue()
     
-    hasSeenOnboarding
-      .removeDuplicates()
-      .sink { [weak self] hasSeen in
-        if hasSeen {
+    hasSeenOnboarding.combineLatest(hasAuthorized)
+      .removeDuplicates(by: { prev, current in
+        prev == current
+      })
+      .sink { [weak self] hasSeen, hasAuth in
+        if hasSeen && hasAuth {
+          self?.goToMain()
+        } else if hasSeen {
           self?.goToAuth()
         } else {
           self?.showOnboard()
@@ -52,7 +58,8 @@ final class AppCoordinator: Coordinator {
   }
   
   func goToAuth() {
-    let auth = AuthCoordinator(navigationController: navigationController)
+    let auth = AuthCoordinator(navigationController: navigationController, hasAuthorized: hasAuthorized)
+    children.removeAll()
     auth.parentCoordinator = self
     children.append(auth)
     auth.start()
@@ -60,18 +67,33 @@ final class AppCoordinator: Coordinator {
   
   func goToMain() {
     let mainCoord = MainScreenCoordinator(navigationController: navigationController)
+    children.removeAll()
     mainCoord.parentCoordinator = self
     children.append(mainCoord)
     mainCoord.start()
   }
-
+  
   private func setupOnboardingValue() {
     let key = "hasSeenOnboarding"
     let value = UserDefaults.standard.bool(forKey: key)
-    print(value)
+    print("hasSeenOnboarding - \(value)")
     hasSeenOnboarding.send(value)
     
     hasSeenOnboarding
+      .removeDuplicates()
+      .filter { $0 }
+      .sink { value in
+        UserDefaults.standard.set(value, forKey: key)
+      }
+      .store(in: &subscriptions)
+  }
+  
+  private func setupAuthorizationValue() {
+    let key = "hasAuthorized"
+    let value = UserDefaults.standard.bool(forKey: key)
+    hasAuthorized.send(value)
+    print("hasAuth - \(value)")
+    hasAuthorized
       .filter { $0 }
       .sink { value in
         UserDefaults.standard.set(value, forKey: key)
