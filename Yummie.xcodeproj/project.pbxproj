@@ -50,6 +50,9 @@
 		81B088262910531700DBC398 /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B088252910531700DBC398 /* StackView.swift */; };
 		81BD20402966E49E0083A40A /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BD203F2966E49E0083A40A /* AuthCoordinator.swift */; };
 		81BD20422966EBCE0083A40A /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BD20412966EBCE0083A40A /* OnboardingCoordinator.swift */; };
+		81BD2045296C8C0D0083A40A /* UserFotoAndNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BD2044296C8C0D0083A40A /* UserFotoAndNameView.swift */; };
+		81BD2047296C92100083A40A /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BD2046296C92100083A40A /* AddressView.swift */; };
+		81BD2049296C95890083A40A /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BD2048296C95890083A40A /* NotificationsView.swift */; };
 		81D8940829240D5A000AD438 /* DishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D8940729240D5A000AD438 /* DishListViewController.swift */; };
 		81D8940A29240DDA000AD438 /* DishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D8940929240DDA000AD438 /* DishViewModel.swift */; };
 		81D8940C292575D5000AD438 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D8940B292575D5000AD438 /* Model.swift */; };
@@ -105,6 +108,9 @@
 		81B088252910531700DBC398 /* StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
 		81BD203F2966E49E0083A40A /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		81BD20412966EBCE0083A40A /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
+		81BD2044296C8C0D0083A40A /* UserFotoAndNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFotoAndNameView.swift; sourceTree = "<group>"; };
+		81BD2046296C92100083A40A /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
+		81BD2048296C95890083A40A /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		81D8940729240D5A000AD438 /* DishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishListViewController.swift; sourceTree = "<group>"; };
 		81D8940929240DDA000AD438 /* DishViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishViewModel.swift; sourceTree = "<group>"; };
 		81D8940B292575D5000AD438 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -171,6 +177,7 @@
 		815228732965665500745955 /* ProfileModule */ = {
 			isa = PBXGroup;
 			children = (
+				81BD2043296C8BB60083A40A /* Views */,
 				815228742965667400745955 /* ProfileViewController.swift */,
 				815228762965786E00745955 /* ProfileViewModel.swift */,
 			);
@@ -318,6 +325,16 @@
 				814181682916ACED00CCE37B /* DetailViewModel.swift */,
 			);
 			path = DetailModule;
+			sourceTree = "<group>";
+		};
+		81BD2043296C8BB60083A40A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				81BD2044296C8C0D0083A40A /* UserFotoAndNameView.swift */,
+				81BD2046296C92100083A40A /* AddressView.swift */,
+				81BD2048296C95890083A40A /* NotificationsView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		81D8940D2926A64B000AD438 /* OrderList */ = {
@@ -476,13 +493,16 @@
 				8152287229645D1400745955 /* MainScreenCoordinator.swift in Sources */,
 				81B0879B2909728600DBC398 /* AppDelegate.swift in Sources */,
 				8152286A296437C300745955 /* Coordinator.swift in Sources */,
+				81BD2047296C92100083A40A /* AddressView.swift in Sources */,
 				81B08818290C078C00DBC398 /* TitleSupplementaryView.swift in Sources */,
 				81B087FF290AA95F00DBC398 /* UIFont.swift in Sources */,
 				815945EA2947A72600347399 /* RegisterViewController.swift in Sources */,
 				8141816D29190B0F00CCE37B /* UITextField.swift in Sources */,
 				8141817029192BED00CCE37B /* OrderModel.swift in Sources */,
 				815228752965667400745955 /* ProfileViewController.swift in Sources */,
+				81BD2045296C8C0D0083A40A /* UserFotoAndNameView.swift in Sources */,
 				81BD20422966EBCE0083A40A /* OnboardingCoordinator.swift in Sources */,
+				81BD2049296C95890083A40A /* NotificationsView.swift in Sources */,
 				815228772965786E00745955 /* ProfileViewModel.swift in Sources */,
 				814181692916ACED00CCE37B /* DetailViewModel.swift in Sources */,
 				81B0881A290C09D700DBC398 /* HomeFoodCategoryCell.swift in Sources */,
