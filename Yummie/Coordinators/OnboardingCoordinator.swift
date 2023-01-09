@@ -44,6 +44,6 @@ final class OnboardingCoordinator: Coordinator {
   func goToAuth() {
     let appC = parentCoordinator as! AppCoordinator
     appC.goToAuth()
-    children.removeAll()
+    parentCoordinator?.childDidFinish(self)
   }
 }
