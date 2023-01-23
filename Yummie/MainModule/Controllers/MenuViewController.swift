@@ -89,8 +89,8 @@ private extension MenuViewController {
     }
     logoutButton.snp.makeConstraints { make in
       make.bottom.equalToSuperview().inset(50)
-      make.centerX.equalTo(view.snp_centerXWithinMargins).inset(-100)
-      make .width.equalTo(view.snp.width).multipliedBy(0.5)
+      make.width.equalTo(view.snp.width).multipliedBy(0.5)
+      make.leading.equalTo(view.snp_leadingMargin).inset(40)
       make.height.equalTo(60)
     }
   }
