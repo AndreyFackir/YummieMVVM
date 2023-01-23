@@ -60,6 +60,8 @@
 		81D894132926A824000AD438 /* OrderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D894122926A824000AD438 /* OrderCollectionViewCell.swift */; };
 		81D894152926AA93000AD438 /* OrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D894142926AA93000AD438 /* OrdersViewModel.swift */; };
 		81FE55B4297E79E30076D5C0 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE55B3297E79E30076D5C0 /* ContainerViewController.swift */; };
+		81FE55B6297E7AB00076D5C0 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE55B5297E7AB00076D5C0 /* MenuViewController.swift */; };
+		81FE55B8297E7FE40076D5C0 /* ContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE55B7297E7FE40076D5C0 /* ContainerViewModel.swift */; };
 		CFD1DFF81317D0BA90963B3C /* Pods_Yummie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E040AC148B1C403F816CD83E /* Pods_Yummie.framework */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +121,8 @@
 		81D894122926A824000AD438 /* OrderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCollectionViewCell.swift; sourceTree = "<group>"; };
 		81D894142926AA93000AD438 /* OrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewModel.swift; sourceTree = "<group>"; };
 		81FE55B3297E79E30076D5C0 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		81FE55B5297E7AB00076D5C0 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		81FE55B7297E7FE40076D5C0 /* ContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewModel.swift; sourceTree = "<group>"; };
 		9F090E59FD902AADE486909B /* Pods-Yummie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yummie.release.xcconfig"; path = "Target Support Files/Pods-Yummie/Pods-Yummie.release.xcconfig"; sourceTree = "<group>"; };
 		C174971A488039250F194378 /* Pods-Yummie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yummie.debug.xcconfig"; path = "Target Support Files/Pods-Yummie/Pods-Yummie.debug.xcconfig"; sourceTree = "<group>"; };
 		E040AC148B1C403F816CD83E /* Pods_Yummie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yummie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -293,10 +297,9 @@
 			isa = PBXGroup;
 			children = (
 				8141815A291421C200CCE37B /* AllDishesModel.swift */,
-				81B08808290BD6ED00DBC398 /* HomeViewController.swift */,
-				8141815C291423F500CCE37B /* MainViewModel.swift */,
+				81FE55BA297E801E0076D5C0 /* Controllers */,
+				81FE55B9297E80140076D5C0 /* ViewModels */,
 				81B08816290C076100DBC398 /* Cell */,
-				81FE55B3297E79E30076D5C0 /* ContainerViewController.swift */,
 			);
 			path = MainModule;
 			sourceTree = "<group>";
@@ -349,6 +352,25 @@
 				81D894142926AA93000AD438 /* OrdersViewModel.swift */,
 			);
 			path = OrderList;
+			sourceTree = "<group>";
+		};
+		81FE55B9297E80140076D5C0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				81FE55B7297E7FE40076D5C0 /* ContainerViewModel.swift */,
+				8141815C291423F500CCE37B /* MainViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		81FE55BA297E801E0076D5C0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				81FE55B3297E79E30076D5C0 /* ContainerViewController.swift */,
+				81B08808290BD6ED00DBC398 /* HomeViewController.swift */,
+				81FE55B5297E7AB00076D5C0 /* MenuViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		82893AB359439FB290E17F6E /* Pods */ = {
@@ -481,8 +503,10 @@
 			files = (
 				81B0879F2909728600DBC398 /* OnboardingViewController.swift in Sources */,
 				81D894132926A824000AD438 /* OrderCollectionViewCell.swift in Sources */,
+				81FE55B8297E7FE40076D5C0 /* ContainerViewModel.swift in Sources */,
 				81418165291567AC00CCE37B /* UIColor.swift in Sources */,
 				81B088262910531700DBC398 /* StackView.swift in Sources */,
+				81FE55B6297E7AB00076D5C0 /* MenuViewController.swift in Sources */,
 				81BD20402966E49E0083A40A /* AuthCoordinator.swift in Sources */,
 				81A0594D2950ED29000832A8 /* RegisterViewModel.swift in Sources */,
 				81D8940A29240DDA000AD438 /* DishViewModel.swift in Sources */,
