@@ -31,11 +31,16 @@ final class MainScreenCoordinator: Coordinator {
   }
   
   func showMainScreen() {
-    let homeVC = HomeViewController()
-    let viewModel = MainViewModel()
-    homeVC.mainViewModel = viewModel
+//    let homeVC = HomeViewController()
+//    let viewModel = MainViewModel()
+//    homeVC.mainViewModel = viewModel
+//    viewModel.coordinator = self
+//    navigationController.pushViewController(homeVC, animated: true)
+    let containerVC = ContainerViewController()
+    let viewModel = ContainerViewModel()
+    containerVC.viewModel = viewModel
     viewModel.coordinator = self
-    navigationController.pushViewController(homeVC, animated: true)
+    navigationController.pushViewController(containerVC, animated: true)
   }
   
   func goToOrdersList() {
