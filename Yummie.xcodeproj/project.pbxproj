@@ -59,6 +59,7 @@
 		81D894112926A6B7000AD438 /* OrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D894102926A6B7000AD438 /* OrderListViewController.swift */; };
 		81D894132926A824000AD438 /* OrderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D894122926A824000AD438 /* OrderCollectionViewCell.swift */; };
 		81D894152926AA93000AD438 /* OrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D894142926AA93000AD438 /* OrdersViewModel.swift */; };
+		81FE55B4297E79E30076D5C0 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE55B3297E79E30076D5C0 /* ContainerViewController.swift */; };
 		CFD1DFF81317D0BA90963B3C /* Pods_Yummie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E040AC148B1C403F816CD83E /* Pods_Yummie.framework */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +118,7 @@
 		81D894102926A6B7000AD438 /* OrderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewController.swift; sourceTree = "<group>"; };
 		81D894122926A824000AD438 /* OrderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCollectionViewCell.swift; sourceTree = "<group>"; };
 		81D894142926AA93000AD438 /* OrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewModel.swift; sourceTree = "<group>"; };
+		81FE55B3297E79E30076D5C0 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		9F090E59FD902AADE486909B /* Pods-Yummie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yummie.release.xcconfig"; path = "Target Support Files/Pods-Yummie/Pods-Yummie.release.xcconfig"; sourceTree = "<group>"; };
 		C174971A488039250F194378 /* Pods-Yummie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yummie.debug.xcconfig"; path = "Target Support Files/Pods-Yummie/Pods-Yummie.debug.xcconfig"; sourceTree = "<group>"; };
 		E040AC148B1C403F816CD83E /* Pods_Yummie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yummie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -294,6 +296,7 @@
 				81B08808290BD6ED00DBC398 /* HomeViewController.swift */,
 				8141815C291423F500CCE37B /* MainViewModel.swift */,
 				81B08816290C076100DBC398 /* Cell */,
+				81FE55B3297E79E30076D5C0 /* ContainerViewController.swift */,
 			);
 			path = MainModule;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				815945E72947A3EF00347399 /* LoginViewModel.swift in Sources */,
 				81D8940C292575D5000AD438 /* Model.swift in Sources */,
 				81B088242910525B00DBC398 /* DetialViewController.swift in Sources */,
+				81FE55B4297E79E30076D5C0 /* ContainerViewController.swift in Sources */,
 				8152287229645D1400745955 /* MainScreenCoordinator.swift in Sources */,
 				81B0879B2909728600DBC398 /* AppDelegate.swift in Sources */,
 				8152286A296437C300745955 /* Coordinator.swift in Sources */,
